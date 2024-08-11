@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\ApplicantAuth\AuthenticatedSessionController;
+use App\Http\Controllers\ApplicantAuth\ConfirmablePasswordController;
+use App\Http\Controllers\ApplicantAuth\EmailVerificationNotificationController;
+use App\Http\Controllers\ApplicantAuth\EmailVerificationPromptController;
+use App\Http\Controllers\ApplicantAuth\NewPasswordController;
+use App\Http\Controllers\ApplicantAuth\PasswordController;
+use App\Http\Controllers\ApplicantAuth\PasswordResetLinkController;
+use App\Http\Controllers\ApplicantAuth\RegisteredUserController;
+use App\Http\Controllers\ApplicantAuth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest:applicant')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
@@ -35,7 +35,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:applicant')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
 

@@ -20,8 +20,17 @@
                         <a href="#">Equivalence</a>
                     </h2>
                     <div class="card fat">
+
+
                         <div class="card-body">
                             <h4 class="card-title">Login</h4>
+                            @if ($errors->all()):
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li class="text-danger fw-bold  ">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
 
                             <!-- Display Session Status -->
                             @if (session('status'))
@@ -30,7 +39,7 @@
                                 </div>
                             @endif
 
-                            <form method="POST" action="{{ route('login') }}" class="my-login-validation"
+                            <form method="POST" action="{{ route('applicant.login') }}" class="my-login-validation"
                                 novalidate="">
                                 @csrf
 
@@ -86,7 +95,7 @@
                                 <!-- Register Link -->
                                 <div class="mt-4 text-center">
                                     Don't have an account?
-                                    <a href="{{ route('register') }}">Create One</a>
+                                    <a href="{{ route('applicant.register') }}">Create One</a>
                                 </div>
                             </form>
                         </div>

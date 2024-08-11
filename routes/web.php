@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\NormalUserRegisterController;
+use App\Http\Controllers\Auth\NormalUserLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Login', function () {
-    return view('login');
-});
+// Route::get('login/show', [NormalUserLoginController::class, 'show'])->name('login');
+// Route::post('login1', [NormalUserLoginController::class, 'login'])->name('login.check');
+
+// Route::get('normal-user/register', [NormalUserRegisterController::class, 'create'])->name('normal-user.register');
+
+// Route::post('normal-user/register', [NormalUserRegisterController::class, 'store']);
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,4 +41,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/applicant.php';
+// require __DIR__ . '/auth.php';

@@ -1,22 +1,25 @@
+<?php
+
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class NormalUser extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory;
 
+    // Specify the table associated with the model if it's not the default 'normal_users'
+    protected $table = 'normal_users';
+
+    // The attributes that are mass assignable
     protected $fillable = [
-        'full_name', 'phone_number', 'email', 'password', 'nationality',
+        'full_name',
+        'phone_number',
+        'email',
+        'password',
+        'nationality',
     ];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // Add any necessary relationships or custom methods here
 }

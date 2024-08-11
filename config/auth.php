@@ -36,9 +36,17 @@ return [
     */
 
     'guards' => [
+        'normal_user' => [
+            'driver' => 'session',
+            'provider' => 'normal_users',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'applicant' => [
+            'driver' => 'session',
+            'provider' => 'applicants',
         ],
     ],
 
@@ -60,9 +68,17 @@ return [
     */
 
     'providers' => [
+        'normal_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\NormalUser::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'applicants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Applicant::class,
         ],
 
         // 'users' => [
@@ -96,6 +112,11 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'applicants' => [
+            'provider' => 'applicants',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

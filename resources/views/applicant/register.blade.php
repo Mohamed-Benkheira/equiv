@@ -13,59 +13,60 @@
 
 <body class="my-login-page">
     <section class="">
-        <div class="container ">
-            <div class="row justify-content-md-center ">
+        <div class="container">
+            <div class="row justify-content-md-center">
                 <div class="card-wrapper">
                     <div class="brand">
                         <h2 class="text-center"><a href="#">Equivalence</a></h2>
                     </div>
                     <div class="card fat">
+                        {{-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}
+
+                        @if ($errors->all()):
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="text-danger fw-bold  ">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                         <div class="card-body">
                             <h4 class="card-title">{{ __('Register') }}</h4>
 
-                            <form method="POST" action="{{ route('register') }}" class="my-login-validation"
+                            <!-- Change the form action to point to the store method of NormalUserRegisterController -->
+                            <form method="POST" action="{{ route('applicant.register') }}" class="my-login-validation"
                                 novalidate>
                                 @csrf
-
                                 <!-- Nationality -->
                                 <div class="form-group">
                                     <label for="nationality">{{ __('Nationality') }}</label>
                                     <select id="nationality" class="form-control" name="nationality" required autofocus>
                                         <option value="" disabled selected>{{ __('Select your nationality') }}
                                         </option>
-                                        <option value="Algerian">Algerian</option>
+                                        <option value="Saudi Arabian">Saudi Arabian</option>
                                         <option value="American">American</option>
-                                        <option value="British">British</option>
-                                        <option value="Canadian">Canadian</option>
-                                        <option value="Chinese">Chinese</option>
                                         <option value="French">French</option>
-                                        <option value="German">German</option>
-                                        <option value="Indian">Indian</option>
-                                        <option value="Japanese">Japanese</option>
-                                        <option value="Russian">Russian</option>
-                                        <option value="Spanish">Spanish</option>
                                     </select>
                                     @error('nationality')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
 
-                                <!-- First Name -->
+                                <!-- Full Name -->
                                 <div class="form-group">
-                                    <label for="first_name">{{ __('First Name') }}</label>
-                                    <input id="first_name" type="text" class="form-control" name="first_name"
-                                        value="{{ old('first_name') }}" required />
-                                    @error('first_name')
+                                    <label for="full_name">{{ __('Full Name') }}</label>
+                                    <input id="full_name" type="text" class="form-control" name="full_name"
+                                        value="{{ old('full_name') }}" required />
+                                    @error('full_name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
 
-                                <!-- Last Name -->
+                                <!-- Phone Number -->
                                 <div class="form-group">
-                                    <label for="last_name">{{ __('Last Name') }}</label>
-                                    <input id="last_name" type="text" class="form-control" name="last_name"
-                                        value="{{ old('last_name') }}" required />
-                                    @error('last_name')
+                                    <label for="phone_number">{{ __('Phone Number') }}</label>
+                                    <input id="phone_number" type="text" class="form-control" name="phone_number"
+                                        value="{{ old('phone_number') }}" required />
+                                    @error('phone_number')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -124,7 +125,7 @@
                                 <!-- Login Link -->
                                 <div class="mt-4 text-center">
                                     {{ __('Already have an account?') }} <a
-                                        href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        href="{{ route('applicant.login') }}">{{ __('Login') }}</a>
                                 </div>
                             </form>
                         </div>

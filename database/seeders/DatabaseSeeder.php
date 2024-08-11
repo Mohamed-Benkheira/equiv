@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         try {
             $this->call(AdminSeeder::class);
         } catch (\Exception $e) {
-            dd($e->getMessage()); // Or log the error
+            dd($e->getMessage()); 
         }
     }
 }

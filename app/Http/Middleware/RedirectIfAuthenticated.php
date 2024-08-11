@@ -21,10 +21,14 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                // Check if the guard is 'applicant'
+                if ($guard == 'applicant') {
+                    return redirect()->route('applicant.index');
+                }
+                // For other guards, redirect to the default home
                 return redirect(RouteServiceProvider::HOME);
             }
         }
-
         return $next($request);
     }
 }
