@@ -39,11 +39,9 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
         <div class="container d-flex align-items-center justify-content-between">
-
             <div class="logo">
                 <h1><a href="index.html">Equivalence</a></h1>
             </div>
-
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -53,7 +51,8 @@
                     <li class="dropdown "><a href="#" class="text-decoration-none"><span>Request</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="text-decoration-none" href="#">Request</a></li>
+                            <li><a class="text-decoration-none" href="{{ route('applicant.bac') }}">Request</a>
+                            </li>
                             <li>
                                 <form action="{{ route('applicant.logout') }}" method="POST">
                                     @csrf

@@ -44,4 +44,8 @@ class Applicant extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function bacRequests()
+    {
+        return $this->hasMany(BacRequest::class);
+    }
 }
