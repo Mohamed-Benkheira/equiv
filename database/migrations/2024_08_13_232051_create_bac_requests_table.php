@@ -12,12 +12,14 @@ return new class extends Migration {
     {
         Schema::create('bac_requests', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('applicant_id')->constrained('applicants')->onDelete('cascade');
             $table->string('school_name');
             $table->date('certificate_date');
             $table->string('id_card_path');
             $table->string('certificate_file_path');
             $table->string('degrees_paper_path');
+            $table->string('status')->default('pending');
             $table->boolean('info_accuracy');
             $table->timestamps();
         });

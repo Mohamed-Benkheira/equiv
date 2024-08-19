@@ -51,15 +51,17 @@
                     <li class="dropdown "><a href="#" class="text-decoration-none"><span>Request</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="text-decoration-none" href="{{ route('applicant.bac') }}">Request</a>
+                            <li><a class="text-decoration-none"
+                                    href="{{ route('applicant.choose.your.certificate') }}">Request</a>
                             </li>
                             <li>
                                 <form action="{{ route('applicant.logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="border-0 bg-white">
-                                        <a class="text-decoration-none"href="#">Logout
-                                            <i class="fa-solid fa-right-from-bracket fs-5"></i>
-                                        </a></button>
+                                    <button type="submit" class="border-0 bg-white w-100">
+                                        <a class="text-decoration-none w-100">
+                                            Logout
+                                        </a>
+                                    </button>
                                 </form>
                             </li>
                         </ul>

@@ -16,11 +16,16 @@ class BacRequest extends Model
         'id_card_path',
         'certificate_file_path',
         'degrees_paper_path',
+        'status',
         'info_accuracy',
     ];
 
     public function applicant()
     {
         return $this->belongsTo(Applicant::class);
+    }
+    public function acceptedRequest()
+    {
+        return $this->hasOne(AcceptedBacRequest::class);
     }
 }

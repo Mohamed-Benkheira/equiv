@@ -16,6 +16,7 @@ use App\Models\AcceptedBacRequest;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 
+use Filament\Notifications\Notification;
 
 
 
@@ -74,6 +75,13 @@ class BacRequestResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('status')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'accepted' => 'success',
+                        'pending' => 'warning',
+                        default => 'danger',
+                    })->sortable(),
                 Tables\Columns\TextColumn::make('applicant.full_name')
                     ->searchable()
                     ->sortable(),
@@ -114,19 +122,16 @@ class BacRequestResource extends Resource
                 Action::make('accept')
                     ->label('Accept Request')
                     ->icon('heroicon-o-check')
+                    ->hidden(fn(BacRequest $record) => $record->status === 'accepted')
                     ->color('success')
                     ->form([
                         Forms\Components\TextInput::make('full_name')
                             ->label('Full Name')
-                            ->default(function (BacRequest $record) {
-                                return $record->applicant->full_name;
-                            })
+                            ->default(fn(BacRequest $record) => $record->applicant->full_name)
                             ->disabled(),
                         Forms\Components\TextInput::make('email')
                             ->label('Email')
-                            ->default(function (BacRequest $record) {
-                                return $record->applicant->email;
-                            })
+                            ->default(fn(BacRequest $record) => $record->applicant->email)
                             ->disabled(),
                         Forms\Components\Textarea::make('message')
                             ->label('Email Message')
@@ -135,7 +140,7 @@ class BacRequestResource extends Resource
                             ->label('Attachment')
                             ->directory('email-attachments')
                             ->acceptedFileTypes(['application/pdf', 'image/*'])
-                            ->maxSize(5120) // 5MB
+                            ->maxSize(5120), // 5MB
                     ])
                     ->action(function (BacRequest $record, array $data) {
                         // Send email
@@ -150,15 +155,16 @@ class BacRequestResource extends Resource
                             'attachment' => $data['attachment'],
                         ]);
 
-                        // Update the status of the original request
+                        // Update the status of the BacRequest
                         $record->update(['status' => 'accepted']);
                     })
                     ->successNotification(
-                        notification: fn($record) => Filament\Notifications\Notification::make()
+                        notification: fn($record) => Notification::make()
                             ->success()
                             ->title('Request Accepted')
                             ->body("The request for {$record->applicant->full_name} has been accepted and an email has been sent.")
-                    ),
+                    )
+
             ])
             ->bulkActions([
                 BulkActionGroup::make([

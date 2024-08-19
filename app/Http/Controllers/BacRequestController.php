@@ -9,9 +9,18 @@ use Illuminate\Support\Facades\Storage;
 class BacRequestController extends Controller
 {
     public function create(Request $request)
-    {
-        return view('applicant.bac.create');
+    {  // Get the currently authenticated user's ID
+        $applicantId = request()->user()->id;
 
+        // Check if the applicant already has a BacRequest
+        $existingRequest = BacRequest::where('applicant_id', $applicantId)->first();
+
+        // If an existing request is found, redirect to the status page
+        if ($existingRequest) {
+            return redirect()->route('applicant.request-status', $existingRequest)
+                ->with('info', 'You have already submitted a request. You can only view the status.');
+        }
+        return view('applicant.equi.bac');
     }
     public function store(Request $request)
     {
@@ -48,6 +57,6 @@ class BacRequestController extends Controller
         $bacRequest->save();
 
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Your request has been submitted successfully!');
+        return redirect()->route("applicant.request-status", ['bacRequest' => $bacRequest->id])->with('success', 'Your request has been submitted successfully!');
     }
 }

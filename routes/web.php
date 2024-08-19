@@ -17,6 +17,9 @@ use App\Http\Controllers\Auth\NormalUserLoginController;
 */
 
 Route::get('/', function () {
+    if (Auth::guard('applicant')->check()) {
+        return redirect()->route('applicant.index'); // Replace with your applicant's dashboard or desired view route
+    }
     return view('welcome');
 });
 // Route::get('login/show', [NormalUserLoginController::class, 'show'])->name('login');
