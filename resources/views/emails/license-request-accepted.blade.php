@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <h1>BAC Request Accepted</h1>
+    <h1>License Request Accepted</h1>
 
-    <p>Dear {{ $bacRequest->applicant->full_name }},</p>
+    <p>Dear {{ $licenseRequest->applicant->full_name }},</p>
 
     <p>{!! nl2br(e($emailMessage)) !!}</p>
 

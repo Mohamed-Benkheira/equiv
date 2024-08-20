@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NormalUserRegisterController;
 use App\Http\Controllers\Auth\NormalUserLoginController;
 use App\Http\Controllers\BacRequestController;
+use App\Http\Controllers\LicenseRequestController;
 use App\Http\Controllers\RequestStatusController;
 
 /*
@@ -32,7 +33,11 @@ Route::prefix('applicant')->name('applicant.')->group(function () {
         // Route::view('request-status', 'applicant.equi.request-status')->name('request-status');
         Route::get('request/bac/status/{bacRequest}', [RequestStatusController::class, 'show'])
             ->name('request-status');
-
+        // 
+        Route::get('request/license', [LicenseRequestController::class, 'create'])
+            ->name('license.create');
+        Route::post('bac-request', [LicenseRequestController::class, 'store'])
+            ->name('license.store');
     });
 
 

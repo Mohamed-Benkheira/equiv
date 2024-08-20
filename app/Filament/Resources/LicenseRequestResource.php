@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BacRequestResource\Pages;
-use App\Models\BacRequest;
+use App\Filament\Resources\LicenseRequestResource\Pages;
+use App\Filament\Resources\LicenseRequestResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -11,20 +11,18 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\BacRequestAccepted;
-use App\Models\AcceptedBacRequest;
-use Filament\Tables\Actions\BulkActionGroup;
+use App\Mail\LicenseRequestAccepted;
 use Filament\Tables\Actions\DeleteBulkAction;
-
 use Filament\Notifications\Notification;
+use App\Models\AcceptedLicenseRequest;
+use App\Models\LicenseRequest;
 
 
 
-
-class BacRequestResource extends Resource
+class LicenseRequestResource extends Resource
 {
-    protected static ?string $model = BacRequest::class;
-    protected static ?string $navigationGroup = 'Bac'; // Grouping under "Bac"
+    protected static ?string $model = LicenseRequest::class;
+    protected static ?string $navigationGroup = 'License';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -37,31 +35,34 @@ class BacRequestResource extends Resource
                     ->searchable()
                     ->preload()
                     ->required(),
-
                 Forms\Components\TextInput::make('school_name')
                     ->required()
                     ->maxLength(255),
-
                 Forms\Components\DatePicker::make('certificate_date')
                     ->required(),
-
                 Forms\Components\FileUpload::make('id_card_path')
                     ->label('ID Card')
-                    ->directory('BacDocument/id_cards')
+                    ->directory('LicenseDocument/id_cards')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
 
-                Forms\Components\FileUpload::make('certificate_file_path')
-                    ->label('Certificate File')
-                    ->directory('BacDocument/certificates')
+                Forms\Components\FileUpload::make('bac_certificate_file_path')
+                    ->label('Bac Certificate File')
+                    ->directory('LicenseDocument/bac_certificates')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
 
-                Forms\Components\FileUpload::make('degrees_paper_path')
-                    ->label('Degrees Paper')
-                    ->directory('BacDocument/degrees_papers')
+                Forms\Components\FileUpload::make('certificate_for_equivalence_file_path')
+                    ->label('Certificate For Equivalence')
+                    ->directory('LicenseDocument/certificates_for_equivalence')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->maxSize(5120) // 5MB
+                    ->required(),
+                Forms\Components\FileUpload::make('statement_of_marks_or_certificate_appendix')
+                    ->label('Statement Of Marks Or Certificate Appendix')
+                    ->directory('LicenseDocument/statements_of_marks_or_certificate_appendix')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
@@ -86,34 +87,40 @@ class BacRequestResource extends Resource
                 Tables\Columns\TextColumn::make('applicant.full_name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('applicant.email')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('school_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('certificate_date')
                     ->date()
-                    ->toggleable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_path')
                     ->label('ID Card')
                     ->formatStateUsing(fn(string $state): string => __('View'))
-                    ->url(fn(BacRequest $record): string => asset("storage/{$record->id_card_path}"))
-                    ->openUrlInNewTab(),
-                Tables\Columns\TextColumn::make('certificate_file_path')
-                    ->label('Certificate')
+                    ->url(fn(LicenseRequest $record): string => asset("storage/{$record->id_card_path}")),
+
+                Tables\Columns\TextColumn::make('bac_certificate_file_path')
+                    ->label('Bac Certificate')
                     ->formatStateUsing(fn(string $state): string => __('View'))
-                    ->url(fn(BacRequest $record): string => asset("storage/{$record->certificate_file_path}"))
-                    ->openUrlInNewTab(),
-                Tables\Columns\TextColumn::make('degrees_paper_path')
-                    ->label('Degrees Paper')
+                    ->url(fn(LicenseRequest $record): string => asset("storage/{$record->bac_certificate_file_path}")),
+                Tables\Columns\TextColumn::make('certificate_for_equivalence_file_path')
+                    ->label('Certificate For Equivalence')
                     ->formatStateUsing(fn(string $state): string => __('View'))
-                    ->url(fn(BacRequest $record): string => asset("storage/{$record->degrees_paper_path}"))
-                    ->openUrlInNewTab(),
+                    ->url(fn(LicenseRequest $record): string => asset("storage/{$record->certificate_for_equivalence_file_path}")),
+                Tables\Columns\TextColumn::make('statement_of_marks_or_certificate_appendix')
+                    ->label('Statement Of Marks Or Certificate Appendix')
+                    ->formatStateUsing(fn(string $state): string => __('View'))
+                    ->url(fn(LicenseRequest $record): string => asset("storage/{$record->statement_of_marks_or_certificate_appendix}")),
+                Tables\Columns\IconColumn::make('info_accuracy')
+                    ->boolean()
+                    ->toggleable(isToggledHiddenByDefault: false),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
                 //
@@ -123,16 +130,16 @@ class BacRequestResource extends Resource
                 Action::make('accept')
                     ->label('Accept Request')
                     ->icon('heroicon-o-check')
-                    ->hidden(fn(BacRequest $record) => $record->status === 'accepted')
+                    ->hidden(fn(LicenseRequest $record) => $record->status === 'accepted')
                     ->color('success')
                     ->form([
                         Forms\Components\TextInput::make('full_name')
                             ->label('Full Name')
-                            ->default(fn(BacRequest $record) => $record->applicant->full_name)
+                            ->default(fn(LicenseRequest $record) => $record->applicant->full_name)
                             ->disabled(),
                         Forms\Components\TextInput::make('email')
                             ->label('Email')
-                            ->default(fn(BacRequest $record) => $record->applicant->email)
+                            ->default(fn(LicenseRequest $record) => $record->applicant->email)
                             ->disabled(),
                         Forms\Components\Textarea::make('message')
                             ->label('Email Message')
@@ -143,20 +150,20 @@ class BacRequestResource extends Resource
                             ->acceptedFileTypes(['application/pdf', 'image/*'])
                             ->maxSize(5120), // 5MB
                     ])
-                    ->action(function (BacRequest $record, array $data) {
+                    ->action(function (LicenseRequest $record, array $data) {
                         // Send email
                         Mail::to($record->applicant->email)
-                            ->send(new BacRequestAccepted($record, $data['message'], $data['attachment']));
+                            ->send(new LicenseRequestAccepted($record, $data['message'], $data['attachment']));
 
                         // Save to AcceptedBacRequest table
-                        AcceptedBacRequest::create([
-                            'bac_request_id' => $record->id,
+                        AcceptedLicenseRequest::create([
+                            'license_request_id' => $record->id,
                             'email_sent_to' => $record->applicant->email,
                             'message' => $data['message'],
                             'attachment' => $data['attachment'],
                         ]);
 
-                        // Update the status of the BacRequest
+                        // Update the status of the LicenseRequest
                         $record->update(['status' => 'accepted']);
                     })
                     ->successNotification(
@@ -168,9 +175,8 @@ class BacRequestResource extends Resource
 
             ])
             ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    // Add other bulk actions here if needed
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -185,9 +191,9 @@ class BacRequestResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBacRequests::route('/'),
-            'create' => Pages\CreateBacRequest::route('/create'),
-            'edit' => Pages\EditBacRequest::route('/{record}/edit'),
+            'index' => Pages\ListLicenseRequests::route('/'),
+            'create' => Pages\CreateLicenseRequest::route('/create'),
+            'edit' => Pages\EditLicenseRequest::route('/{record}/edit'),
         ];
     }
 }

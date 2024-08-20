@@ -67,18 +67,18 @@
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
                         Baccalaureate
                     </a>
-                    {{-- <a href="{{ route('applicant.bac') }}" class="btn btn-outline-dark btn-lg text-center"
-                    style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                    Second Certificate
+                    <a href="{{ route('applicant.license.create') }}" class="btn btn-outline-dark btn-lg text-center"
+                        style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
+                        Second Certificate
                     </a>
-                    <a href="{{ route('applicant.bac') }}" class="btn btn-outline-dark btn-lg text-center"
-                    style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                    Third Certificate
+                    <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
+                        style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
+                        Third Certificate
                     </a>
-                    <a href="{{ route('applicant.bac') }}" class="btn btn-outline-dark btn-lg text-center"
-                    style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                    Fourth Certificate
-                    </a> --}}
+                    <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
+                        style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
+                        Fourth Certificate
+                    </a>
                 </div>
             </div>
         </div>

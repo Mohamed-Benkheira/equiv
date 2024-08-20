@@ -44,13 +44,13 @@ class BacRequestController extends Controller
 
         // Handle file uploads
         if ($request->hasFile('id_card')) {
-            $bacRequest->id_card_path = $request->file('id_card')->store('documents/id_cards', 'public');
+            $bacRequest->id_card_path = $request->file('id_card')->store('BacDocument/id_cards', 'public');
         }
         if ($request->hasFile('certificate_file')) {
-            $bacRequest->certificate_file_path = $request->file('certificate_file')->store('documents/certificates', 'public');
+            $bacRequest->certificate_file_path = $request->file('certificate_file')->store('BacDocument/certificates', 'public');
         }
         if ($request->hasFile('degrees_paper')) {
-            $bacRequest->degrees_paper_path = $request->file('degrees_paper')->store('documents/degrees', 'public');
+            $bacRequest->degrees_paper_path = $request->file('degrees_paper')->store('BacDocument/degrees_papers', 'public');
         }
 
         // Save the BacRequest instance to the database
