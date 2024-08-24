@@ -36,18 +36,15 @@ return [
     */
 
     'guards' => [
-        'normal_user' => [
+        'applicant' => [
             'driver' => 'session',
-            'provider' => 'normal_users',
+            'provider' => 'applicants',
         ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'applicant' => [
-            'driver' => 'session',
-            'provider' => 'applicants',
-        ],
+
     ],
 
     /*
@@ -68,18 +65,15 @@ return [
     */
 
     'providers' => [
-        'normal_users' => [
+        'applicants' => [
             'driver' => 'eloquent',
-            'model' => App\Models\NormalUser::class,
+            'model' => App\Models\Applicant::class,
         ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'applicants' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Applicant::class,
-        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -109,14 +103,15 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_reset_tokens',
+            'table' => 'password_reset',
             'expire' => 60,
             'throttle' => 60,
         ],
         'applicants' => [
             'provider' => 'applicants',
-            'table' => 'password_resets',
+            'table' => 'password_reset',
             'expire' => 60,
+            'throttle' => 60,
         ],
     ],
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -7,25 +6,31 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Attachment;
 use App\Models\LicenseRequest;
 
-use Illuminate\Queue\SerializesModels;
-
-class LicenseRequestAccepted extends Mailable
+class LicenseRequestResponse extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $licenseRequest;
+    public $emailMessage;
+    public $attachmentPath;
+    public $status;
 
     /**
      * Create a new message instance.
      */
-    public $licenseRequest;
-    public $emailMessage;
-    public $attachmentPath;
-    public function __construct(LicenseRequest $licenseRequest, string $emailMessage, ?string $attachmentPath)
-    {
+    public function __construct(
+        LicenseRequest $licenseRequest,
+        string $emailMessage,
+        string $status,
+        ?string $attachmentPath = null
+    ) {
         $this->licenseRequest = $licenseRequest;
         $this->emailMessage = $emailMessage;
+        $this->status = $status;
         $this->attachmentPath = $attachmentPath;
     }
 
@@ -34,8 +39,10 @@ class LicenseRequestAccepted extends Mailable
      */
     public function envelope(): Envelope
     {
+        $subject = $this->status === 'accepted' ? 'License Request Accepted' : 'License Request Declined';
+
         return new Envelope(
-            subject: 'License Request Accepted',
+            subject: $subject,
         );
     }
 
@@ -45,8 +52,9 @@ class LicenseRequestAccepted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.license-request-accepted',
+            view: 'emails.license-request-response',
         );
+
     }
 
     /**
@@ -56,12 +64,14 @@ class LicenseRequestAccepted extends Mailable
      */
     public function attachments(): array
     {
-        $attachments = [];
-
-        if ($this->attachmentPath) {
-            $attachments[] = Attachment::fromPath(storage_path('app/public/' . $this->attachmentPath));
+        // Only attach a file if $attachmentPath is not null and if the request is accepted
+        if ($this->attachmentPath && $this->status === 'accepted') {
+            return [
+                Attachment::fromPath(storage_path('app/public/' . $this->attachmentPath)),
+            ];
         }
 
-        return $attachments;
+        // No attachments for declined requests or if no attachment path is provided
+        return [];
     }
 }

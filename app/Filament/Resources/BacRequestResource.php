@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BacRequestResource\Pages;
 use App\Models\BacRequest;
+use App\Models\DeclinedBacRequest;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -11,7 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\BacRequestAccepted;
+use App\Mail\BacRequestResponse;
 use App\Models\AcceptedBacRequest;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -81,7 +82,7 @@ class BacRequestResource extends Resource
                     ->color(fn(string $state): string => match ($state) {
                         'accepted' => 'success',
                         'pending' => 'warning',
-                        default => 'danger',
+                        "declined" => 'danger',
                     })->sortable(),
                 Tables\Columns\TextColumn::make('applicant.full_name')
                     ->searchable()
@@ -120,10 +121,12 @@ class BacRequestResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
+                // Accept Action
                 Action::make('accept')
                     ->label('Accept Request')
                     ->icon('heroicon-o-check')
-                    ->hidden(fn(BacRequest $record) => $record->status === 'accepted')
+                    ->hidden(fn(BacRequest $record) => in_array($record->status, ['accepted', 'declined']))
                     ->color('success')
                     ->form([
                         Forms\Components\TextInput::make('full_name')
@@ -146,7 +149,7 @@ class BacRequestResource extends Resource
                     ->action(function (BacRequest $record, array $data) {
                         // Send email
                         Mail::to($record->applicant->email)
-                            ->send(new BacRequestAccepted($record, $data['message'], $data['attachment']));
+                            ->send(new BacRequestResponse($record, $data['message'], 'accepted', $data['attachment']));
 
                         // Save to AcceptedBacRequest table
                         AcceptedBacRequest::create([
@@ -164,9 +167,51 @@ class BacRequestResource extends Resource
                             ->success()
                             ->title('Request Accepted')
                             ->body("The request for {$record->applicant->full_name} has been accepted and an email has been sent.")
-                    )
+                    ),
 
+                // Decline Action
+                Action::make('decline')
+                    ->label('Decline Request')
+                    ->icon('heroicon-o-x-circle')
+                    ->hidden(fn(BacRequest $record) => in_array($record->status, ['accepted', 'declined']))
+                    ->color('danger')
+                    ->form([
+                        Forms\Components\TextInput::make('full_name')
+                            ->label('Full Name')
+                            ->default(fn(BacRequest $record) => $record->applicant->full_name)
+                            ->disabled(),
+                        Forms\Components\TextInput::make('email')
+                            ->label('Email')
+                            ->default(fn(BacRequest $record) => $record->applicant->email)
+                            ->disabled(),
+                        Forms\Components\Textarea::make('message')
+                            ->label('Email Message')
+                            ->required(),
+                    ])
+                    ->action(function (BacRequest $record, array $data) {
+                        // Send email
+                        Mail::to($record->applicant->email)
+                            ->send(new BacRequestResponse($record, $data['message'], 'declined'));
+
+                        // Save to DeclinedBacRequest table
+                        DeclinedBacRequest::create([
+                            'bac_request_id' => $record->id,
+                            'email_sent_to' => $record->applicant->email,
+                            'message' => $data['message'],
+                        ]);
+
+                        // Update the status of the BacRequest
+                        $record->update(['status' => 'declined']);
+                    })
+                    ->successNotification(
+                        notification: fn($record) => Notification::make()
+                            ->success()
+                            ->title('Request Declined')
+                            ->body("The request for {$record->applicant->full_name} has been declined and an email has been sent.")
+                    ),
             ])
+
+
             ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),

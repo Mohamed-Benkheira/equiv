@@ -24,20 +24,19 @@ Route::prefix('applicant')->name('applicant.')->group(function () {
 
         Route::view('index', 'applicant.index')->name('index');
         Route::view('request', 'applicant.equi.choose-your-certificate')->name('choose.your.certificate');
-        // Route::view('request', 'applicant.equi.request')->name('request');
-        // Route::view('request/bac', 'applicant.equi.bac')->name('bac');
-        Route::get('request/bac', [BacRequestController::class, 'create'])
+
+        Route::get('request/bac/create', [BacRequestController::class, 'create'])
             ->name('bac.create');
-        Route::post('bac-request', [BacRequestController::class, 'store'])
+        Route::post('request/bac/store', [BacRequestController::class, 'store'])
             ->name('bac.store');
-        // Route::view('request-status', 'applicant.equi.request-status')->name('request-status');
-        Route::get('request/bac/status/{bacRequest}', [RequestStatusController::class, 'show'])
-            ->name('request-status');
+        Route::get('request/bac/status/{bacRequest}', [RequestStatusController::class, 'showBacStatus'])
+            ->name('bac.request.status');
         // 
         Route::get('request/license', [LicenseRequestController::class, 'create'])
             ->name('license.create');
         Route::post('bac-request', [LicenseRequestController::class, 'store'])
             ->name('license.store');
+        Route::get('request/license/status/{licenseRequest}', [RequestStatusController::class, 'showLicenseStatus'])->name('license.request.status');
     });
 
 

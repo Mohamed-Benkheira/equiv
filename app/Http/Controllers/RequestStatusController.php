@@ -2,20 +2,45 @@
 namespace App\Http\Controllers;
 
 use App\Models\BacRequest;
+use App\Models\LicenseRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RequestStatusController extends Controller
 {
-    public function show(BacRequest $bacRequest)
+    public function showBacStatus()
     {
-        // Load the related applicant and acceptedRequest
-        $bacRequest->load(['applicant', 'acceptedRequest']);
+        // Get the currently authenticated applicant
+        $applicant = Auth::guard('applicant')->user();
 
-        // Check if the request has been accepted
-        $isAccepted = $bacRequest->acceptedRequest()->exists();
+        // Check if the applicant already has a BacRequest
+        $existingBacRequest = BacRequest::where('applicant_id', $applicant->id)->first();
 
-        // Return the view with the data
-        return view('applicant.equi.bac-request-status', compact('bacRequest', 'isAccepted'));
+        if ($existingBacRequest) {
+            // Redirect to the status page with the bacRequest ID
+            return view('applicant.equi.bac-request-status', [
+                'bacRequest' => $existingBacRequest,
+                'status' => $existingBacRequest->status
+            ]);
+        }
+
+        // Return the view for submitting a new BAC request
+        return view('applicant.equi.bac');
     }
+
+    public function showLicenseStatus($licenseRequestId)
+    {
+        // Fetch the LicenseRequest using the provided ID
+        $licenseRequest = LicenseRequest::findOrFail($licenseRequestId);
+
+        // Determine the status of the request
+        $status = $licenseRequest->status; // 'pending', 'rejected', 'accepted'
+
+        // Pass both $licenseRequest and the status to the view
+        return view('applicant.equi.license-request-status', [
+            'licenseRequest' => $licenseRequest,
+            'status' => $status
+        ]);
+    }
+
 }

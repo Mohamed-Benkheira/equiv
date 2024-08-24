@@ -17,6 +17,8 @@ class Applicant extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'applicants';
     protected $fillable = [
         'full_name',
         'phone_number',
@@ -47,5 +49,9 @@ class Applicant extends Authenticatable
     public function bacRequests()
     {
         return $this->hasMany(BacRequest::class);
+    }
+    public function licenseRequest()
+    {
+        return $this->hasMany(licenseRequest::class);
     }
 }

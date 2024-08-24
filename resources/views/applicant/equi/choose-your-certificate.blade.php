@@ -65,17 +65,17 @@
                 <div class="d-flex flex-column gap-3">
                     <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Baccalaureate
+                        Request Baccalaureate Certificate Equivalence
                     </a>
                     <a href="{{ route('applicant.license.create') }}" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Second Certificate
+                        Request License Certificate Equivalence
                     </a>
-                    <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
+                    <a href="#" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
                         Third Certificate
                     </a>
-                    <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
+                    <a href="#" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
                         Fourth Certificate
                     </a>

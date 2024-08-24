@@ -14,17 +14,17 @@ class LicenseRequestController extends Controller
      */
     public function create(Request $request)
     {
-        // // // Get the currently authenticated user's ID
-        // $applicantId = request()->applicant()->id;
+        // Get the currently authenticated applicant
+        $applicant = Auth::guard('applicant')->user();
 
-        // // Check if the applicant already has a License request
-        // $existingRequest = LicenseRequest::where('applicant_id', $applicantId)->first();
+        // Check if the applicant already has a bac request
+        $existingRequest = LicenseRequest::where('applicant_id', $applicant->id)->first();
 
-        // // If an existing request is found, redirect to the status page
-        // if ($existingRequest) {
-        //     return redirect()->route('applicant.request-status', $existingRequest)
-        //         ->with('info', 'You have already submitted a request. You can only view the status.');
-        // }
+        if ($existingRequest) {
+            // Redirect to the status page if a request exists
+            return redirect()->route('applicant.license.request.status', ['licenseRequest' => $existingRequest->id]);
+        }
+
 
         return view('applicant.equi.license');
     }

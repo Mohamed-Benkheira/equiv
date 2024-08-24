@@ -13,14 +13,11 @@ use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Mail;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Notifications\Notification;
-use App\Mail\LicenseRequestAccepted;
+use App\Mail\LicenseRequestResponse; // Ensure this mailable exists
 use App\Models\AcceptedLicenseRequest;
+use App\Models\DeclinedLicenseRequest; // Ensure this model exists
 use App\Models\LicenseRequest;
-
 use Filament\Tables\Actions\BulkActionGroup;
-
-
-
 
 class LicenseRequestResource extends Resource
 {
@@ -49,14 +46,12 @@ class LicenseRequestResource extends Resource
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
-
                 Forms\Components\FileUpload::make('bac_certificate_file_path')
                     ->label('Bac Certificate File')
                     ->directory('LicenseDocument/bac_certificates')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
-
                 Forms\Components\FileUpload::make('certificate_for_equivalence_file_path')
                     ->label('Certificate For Equivalence')
                     ->directory('LicenseDocument/certificates_for_equivalence')
@@ -69,7 +64,6 @@ class LicenseRequestResource extends Resource
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->maxSize(5120) // 5MB
                     ->required(),
-
                 Forms\Components\Checkbox::make('info_accuracy')
                     ->label('I confirm that the information provided is valid and original')
                     ->required(),
@@ -99,7 +93,6 @@ class LicenseRequestResource extends Resource
                     ->label('ID Card')
                     ->formatStateUsing(fn(string $state): string => __('View'))
                     ->url(fn(LicenseRequest $record): string => asset("storage/{$record->id_card_path}")),
-
                 Tables\Columns\TextColumn::make('bac_certificate_file_path')
                     ->label('Bac Certificate')
                     ->formatStateUsing(fn(string $state): string => __('View'))
@@ -112,18 +105,14 @@ class LicenseRequestResource extends Resource
                     ->label('Statement Of Marks Or Certificate Appendix')
                     ->formatStateUsing(fn(string $state): string => __('View'))
                     ->url(fn(LicenseRequest $record): string => asset("storage/{$record->statement_of_marks_or_certificate_appendix}")),
-                Tables\Columns\IconColumn::make('info_accuracy')
-                    ->boolean()
-                    ->toggleable(isToggledHiddenByDefault: false),
-
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: false),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: false),
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -133,7 +122,7 @@ class LicenseRequestResource extends Resource
                 Action::make('accept')
                     ->label('Accept Request')
                     ->icon('heroicon-o-check')
-                    ->hidden(fn(LicenseRequest $record) => $record->status === 'accepted')
+                    ->hidden(fn(LicenseRequest $record) => in_array($record->status, ['accepted', 'declined']))
                     ->color('success')
                     ->form([
                         Forms\Components\TextInput::make('full_name')
@@ -149,6 +138,7 @@ class LicenseRequestResource extends Resource
                             ->required(),
                         Forms\Components\FileUpload::make('attachment')
                             ->label('Attachment')
+                            ->required()
                             ->directory('email-attachments')
                             ->acceptedFileTypes(['application/pdf', 'image/*'])
                             ->maxSize(5120), // 5MB
@@ -156,9 +146,9 @@ class LicenseRequestResource extends Resource
                     ->action(function (LicenseRequest $record, array $data) {
                         // Send email
                         Mail::to($record->applicant->email)
-                            ->send(new LicenseRequestAccepted($record, $data['message'], $data['attachment']));
+                            ->send(new LicenseRequestResponse($record, $data['message'], $data['attachment']));
 
-                        // Save to AcceptedBacRequest table
+                        // Save to AcceptedLicenseRequest table
                         AcceptedLicenseRequest::create([
                             'license_request_id' => $record->id,
                             'email_sent_to' => $record->applicant->email,
@@ -174,8 +164,47 @@ class LicenseRequestResource extends Resource
                             ->success()
                             ->title('Request Accepted')
                             ->body("The request for {$record->applicant->full_name} has been accepted and an email has been sent.")
-                    )
+                    ),
+                // Decline Action
+                Action::make('decline')
+                    ->label('Decline Request')
+                    ->icon('heroicon-o-x-circle')
+                    ->hidden(fn(LicenseRequest $record) => in_array($record->status, ['accepted', 'declined']))
+                    ->color('danger')
+                    ->form([
+                        Forms\Components\TextInput::make('full_name')
+                            ->label('Full Name')
+                            ->default(fn(LicenseRequest $record) => $record->applicant->full_name)
+                            ->disabled(),
+                        Forms\Components\TextInput::make('email')
+                            ->label('Email')
+                            ->default(fn(LicenseRequest $record) => $record->applicant->email)
+                            ->disabled(),
+                        Forms\Components\Textarea::make('message')
+                            ->label('Email Message')
+                            ->required(),
+                    ])
+                    ->action(function (LicenseRequest $record, array $data) {
+                        // Send email
+                        Mail::to($record->applicant->email)
+                            ->send(new LicenseRequestResponse($record, $data['message'], 'declined'));
 
+                        // Save to DeclinedLicenseRequest table
+                        DeclinedLicenseRequest::create([
+                            'license_request_id' => $record->id,
+                            'email_sent_to' => $record->applicant->email,
+                            'message' => $data['message'],
+                        ]);
+
+                        // Update the status of the LicenseRequest
+                        $record->update(['status' => 'declined']);
+                    })
+                    ->successNotification(
+                        notification: fn($record) => Notification::make()
+                            ->success()
+                            ->title('Request Declined')
+                            ->body("The request for {$record->applicant->full_name} has been declined and an email has been sent.")
+                    )
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

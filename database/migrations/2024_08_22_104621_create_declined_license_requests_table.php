@@ -4,20 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('normal_users', function (Blueprint $table) {
+        Schema::create('declined_license_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('nationality');
-            $table->string('full_name');
-            $table->string('phone_number');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->foreignId('license_request_id')->constrained()->onDelete('cascade');
+            $table->string('email_sent_to');
+            $table->text('message');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('normal_users');
+        Schema::dropIfExists('declined_license_requests');
     }
 };

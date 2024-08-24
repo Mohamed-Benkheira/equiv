@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -11,21 +10,28 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Attachment;
 use App\Models\BacRequest;
 
-class BacRequestAccepted extends Mailable
+class BacRequestResponse extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $bacRequest;
     public $emailMessage;
     public $attachmentPath;
+    public $status;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(BacRequest $bacRequest, string $emailMessage, ?string $attachmentPath)
-    {
+    public function __construct(
+        BacRequest $bacRequest,
+        string $emailMessage,
+        string $status,
+        ?string $attachmentPath =
+        null
+    ) {
         $this->bacRequest = $bacRequest;
         $this->emailMessage = $emailMessage;
+        $this->status = $status;
         $this->attachmentPath = $attachmentPath;
     }
 
@@ -34,8 +40,10 @@ class BacRequestAccepted extends Mailable
      */
     public function envelope(): Envelope
     {
+        $subject = $this->status === 'accepted' ? 'BAC Request Accepted' : 'BAC Request Declined';
+
         return new Envelope(
-            subject: 'BAC Request Accepted',
+            subject: $subject,
         );
     }
 
@@ -45,8 +53,9 @@ class BacRequestAccepted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.bac-request-accepted',
+            view: 'emails.bac-request-response',
         );
+
     }
 
     /**
@@ -56,12 +65,14 @@ class BacRequestAccepted extends Mailable
      */
     public function attachments(): array
     {
-        $attachments = [];
-
-        if ($this->attachmentPath) {
-            $attachments[] = Attachment::fromPath(storage_path('app/public/' . $this->attachmentPath));
+        // Only attach a file if $attachmentPath is not null and if the request is accepted
+        if ($this->attachmentPath && $this->status === 'accepted') {
+            return [
+                Attachment::fromPath(storage_path('app/public/' . $this->attachmentPath)),
+            ];
         }
 
-        return $attachments;
+        // No attachments for declined requests or if no attachment path is provided
+        return [];
     }
 }
