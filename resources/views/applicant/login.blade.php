@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/my-login.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
 </head>
 
 <body class="my-login-page">
+    <div class="" style="height: 70px ; background-color:#00415a;">
+        @include('../partitions.guest-header')
+    </div>
+
     <section class="h-100">
         <div class="container h-100">
             <div class="row justify-content-md-center h-100">
@@ -87,7 +92,7 @@
                                 <!-- Login Button -->
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-block"
-                                        style="background-color: #ef6603; color: white">
+                                        style="background-color:#00415a; color: white">
                                         Login
                                     </button>
                                 </div>

@@ -14,46 +14,14 @@
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: white; color: #333;">
 
     <!-- Header Section -->
-    <header id="header" class="fixed-top d-flex align-items-center ">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="logo">
-                <h1><a href="index.html">Equivalence</a></h1>
-            </div>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#Features">Features</a></li>
-                    <li><a class="nav-link scrollto" href="#howItWorks">How to use</a></li>
-                    <li class="dropdown "><a href class="text-decoration-none">
-                            <span>Request<span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a class="text-decoration-none"
-                                    href="{{ route('applicant.choose.your.certificate') }}">Request</a></li>
-                            <li>
-                                <form action="{{ route('applicant.logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="border-0 bg-white w-100">
-                                        <a class="text-decoration-none w-100">
-                                            Logout
-                                        </a>
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="#faq">Q & A</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-        </div>
-    </header>
+    @include('../partitions.applicant-header')
+
     <!-- End Header Section -->
 
     <!-- Main Section -->
     <style>
         a:hover {
-            background-color: #ef6603 !important;
+            background-color: #005a9c !important;
             color: white !important;
 
         }
@@ -69,16 +37,27 @@
                     </a>
                     <a href="{{ route('applicant.license.create') }}" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Request License Certificate Equivalence
+                        Request License Degree Equivalence
                     </a>
-                    <a href="#" class="btn btn-outline-dark btn-lg text-center"
+
+                    <a href="#" class="btn btn-outline-dark disabled btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Third Certificate
+                        Request Masters Degree Equivalence
                     </a>
-                    <a href="#" class="btn btn-outline-dark btn-lg text-center"
+                    <a href="#" class="btn btn-outline-dark disabled btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Fourth Certificate
+                        Request PHD Degree Equivalence
                     </a>
+                    <a href="#" class="btn btn-outline-dark disabled btn-lg text-center"
+                        style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
+                        Request Medical Degree Equivalence
+                    </a>
+                    <a href="#" class="btn btn-outline-dark disabled btn-lg text-center"
+                        style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
+                        Request Veterinarian Degree Equivalence
+                    </a>
+
+
                 </div>
             </div>
         </div>

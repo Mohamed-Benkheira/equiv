@@ -37,68 +37,40 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div class="logo">
-                <h1><a href="index.html">Equivalence</a></h1>
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#Features">Features</a></li>
-                    <li><a class="nav-link scrollto" href="#howItWorks">How to use</a></li>
-                    <li class="dropdown "><a href="#" class="text-decoration-none"><span>Login</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a class="text-decoration-none" href="login.html">Login</a></li>
-                            <li><a class="text-decoration-none" href="register.html">Sign up</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto " href="#faq">Q % A</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-
-        </div>
-    </header><!-- End Header -->
+    @include('partitions.guest-header')
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-end align-items-center"
-        style="background-image: url({{ asset('assets/img/hero-3.jpg') }});background-size: cover">
+        style="background-image: url({{ asset('assets/img/hero.png') }});background-size: cover">
         <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-            {{-- style="background-image: url({{ asset('build/assets/img/hero.jpg') }}) ;background-size:cover;" --}}
+
+
             <!-- Slide 1 -->
             <div class="carousel-item active ">
                 <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown shadow-lg text-white">Equivalence</h2>
-                    <p class="animate__animated fanimate__adeInUp">Our platform simplifies the process of evaluating and
-                        recognizing your academic qualifications, ensuring a smooth journey for your educational and
-                        professional mobility.</p>
+                    <div class="mb-3"> <img src="{{ asset('assets/img/logo.png') }}" alt="logo"></div>
+                    <h3 class="animate__animated animate__fadeInDown fw-bold text-white">MINISTRY OF HIGHER EDUCATION
+                        AND SCIENTIFIC RESEARCH</h3>
+                    <p class="animate__animated fanimate__adeInUp fs-3  m-0 p-0" id="arabic">وزارة التعليم العالي و
+                        البحث
+                        العلمي
+                    </p>
+                    <p class="animate__animated fanimate__adeInUp fs-5 m-0 p-0" id="arabic"> ⴰⵖⵍⵉⴼ ⵏ ⵓ ⵙⴻⵍⵎⴻⴷ ⵓⵏⵏⵉⴳ ⴷ
+                        ⵓⵏⴰⴷⵉ
+                        ⵓⵙⵙⵏⴰⵏ
+                    </p>
                     <a href="#about"
                         class="btn-get-started animate__animated animate__fadeInUp scrollto text-decoration-none">Read
                         More</a>
                 </div>
             </div>
+
+
 
             <!-- Slide 2 -->
-            <div class="carousel-item"> {{--  style="background-image: url({{ asset('build/assets/img/hero-2.jpg') }})"> --}}
-
+            <div class="carousel-item">
                 <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Equivalence</h2>
-                    <p class="animate__animated animate__fadeInUp">Our platform simplifies the process of evaluating and
-                        recognizing your academic qualifications, ensuring a smooth journey for your educational and
-                        professional mobility.</p>
-                    <a href="#about"
-                        class="btn-get-started animate__animated animate__fadeInUp scrollto text-decoration-none">Read
-                        More</a>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item">{{-- style="background-image: url({{ asset('build/assets/img/hero-1.jpg') }});background-size: fill;"> --}} <div class="carousel-container">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
                     <h2 class="animate__animated animate__fadeInDown">Equivalence</h2>
                     <p class="animate__animated animate__fadeInUp">Our platform simplifies the process of evaluating and
                         recognizing your academic qualifications, ensuring a smooth journey for your educational and
@@ -150,17 +122,18 @@
                 <div class="row content" data-aos="fade-up">
                     <div class="col-lg-6">
                         <p>
-                            Chez EQUIVALENCE, nous nous engageons à simplifier le processus d'équivalence des diplômes
-                            pour les étudiants, les diplômés et les professionnels. Notre mission est de fournir une
-                            plateforme sécurisée, intuitive et efficace qui harmonise l'évaluation et la reconnaissance
-                            des qualifications académiques à la fois localement et internationalement.
+                            EQUIVALENCE is a platform developed for the MINISTRY OF HIGHER EDUCATION AND SCIENTIFIC
+                            RESEARCH, dedicated to simplifying the diploma equivalence process for students, graduates,
+                            and professionals. Our mission is to provide a secure, intuitive, and efficient platform
+                            that harmonizes the assessment and recognition of academic qualifications both locally and
+                            internationally.
                         </p>
                         <ul>
-                            <li><i class="ri-check-double-line"></i> Facilitation de la Mobilité: Nous croyons en la
-                                facilitation de la mobilité éducative et professionnelle en offrant un système fiable de
-                                vérification et de comparaison des diplômes.</li>
-                            <li><i class="ri-check-double-line"></i>Expertise en Éducation et Technologie: Notre équipe
-                                est composée d'experts en éducation, en technologie et en sécurité des données.</li>
+                            <li><i class="ri-check-double-line"></i> Facilitating Mobility: We believe in facilitating
+                                educational and professional mobility by offering a reliable system for the verification
+                                and comparison of diplomas.</li>
+                            <li><i class="ri-check-double-line"></i>Expertise in Education and Technology: Our team
+                                consists of experts in education, technology, and data security.</li>
                             <li><i class="ri-check-double-line"></i> Innovation et Expérience Utilisateur: En mettant
                                 l'accent sur l'innovation et l'expérience utilisateur, nous visons à rendre le parcours
                                 de reconnaissance des diplômes aussi fluide et accessible que possible.</li>
@@ -168,11 +141,10 @@
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <p>
-                            Que vous soyez un étudiant cherchant à poursuivre vos études ou un professionnel souhaitant
-                            faire avancer votre carrière, [Nom de Votre Plateforme] est là pour soutenir vos aspirations
-                            et vous aider à atteindre vos objectifs.
+                            Innovation and User Experience: By focusing on innovation and user experience, we aim to
+                            make the diploma recognition journey as smooth and accessible as possible.
                         </p>
-                        <a href="#" class="btn-learn-more">Learn More</a>
+                        <a href="https://www.mesrs.dz/index.php/en/home/" class="btn-learn-more">Learn More</a>
                     </div>
                 </div>
 
@@ -497,20 +469,41 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Selecao</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
-                placeat.</p>
-            <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-            <div class="copyright">
-                &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
-            </div>
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-white fw-bold ">© 2024 EQUIVALENCE,<br> <span class=" fw-light">
+                        MINISTRY OF
+                        HIGHER
+                        EDUCATION AND SCIENTIFIC
+                        RESEARCH</span>
+                </p>
 
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo">
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Home</a></li>
+                    <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/home/"
+                            class="nav-link px-2 text-white">Minister</a></li>
+
+                    <li class="nav-item"><a
+                            href="
+                        https://www.mesrs.dz/index.php/en/ethics-and-deontology/"
+                            class="nav-link px-2 text-white">Ethics </a>
+                    </li>
+                    <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/international-cooperation/"
+                            class="nav-link px-2 text-white">
+                            I. Cooperation</a></li>
+                </ul>
+
+            </footer>
+            <div class="nav-item"><a href="#" class="nav-link px-2 text-white">Adress: 11, Chemin Doudou
+                    Mokhtar, Ben Aknoun – Alger – Algérie</a></div>
+
+            <div class="text-white">
+                +213 (0) 23-23-80-77 | +213 (0) 23-23-80-57
+            </div>
         </div>
     </footer><!-- End Footer -->
 

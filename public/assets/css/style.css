@@ -1,26 +1,17 @@
-/**
-* Template Name: Selecao
-* Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
     font-family: "Open Sans", sans-serif;
     color: #444444;
 }
 
 a {
-    color: #ef6603;
+    color: #005a9c;
     text-decoration: none !important;
 }
 
 a:hover {
-    color: #fc8129;
+    color: #005a9c;
     text-decoration: none;
 }
 
@@ -36,6 +27,12 @@ h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+
+#arabic {
+    font-family: "Tajawal", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
 .back-to-top {
     position: fixed;
     visibility: hidden;
@@ -43,7 +40,7 @@ h6 {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #ef6603;
+    background: #005a9c;
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -57,7 +54,7 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: #fc7c1f;
+    background: #005a9c;
     color: #fff;
 }
 
@@ -162,7 +159,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-    background: #ef6603;
+    background: #005a9c;
+    color: white;
 }
 
 .navbar .dropdown ul {
@@ -401,11 +399,11 @@ h6 {
     margin: 10px;
     color: #fff;
     animation-delay: 0.8s;
-    border: 2px solid #ef6603;
+    border: 2px solid #005a9c;
 }
 
 #hero .btn-get-started:hover {
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
     text-decoration: none;
 }
@@ -512,7 +510,7 @@ section {
     width: 120px;
     height: 1px;
     display: inline-block;
-    background: #fd9042;
+    background: #005a9c;
     margin: 4px 10px;
 }
 
@@ -557,7 +555,7 @@ section {
     left: 0;
     top: 2px;
     font-size: 20px;
-    color: #ef6603;
+    color: #005a9c;
     line-height: 1;
 }
 
@@ -575,14 +573,14 @@ section {
     border-radius: 5px;
     transition: 0.3s;
     line-height: 1;
-    color: #ef6603;
+    color: #005a9c;
     animation-delay: 0.8s;
     margin-top: 6px;
-    border: 2px solid #ef6603;
+    border: 2px solid #005a9c;
 }
 
 .about .content .btn-learn-more:hover {
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
     text-decoration: none;
 }
@@ -617,13 +615,13 @@ section {
 }
 
 .features .nav-link:hover {
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .features .nav-link.active {
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
-    border-color: #ef6603;
+    border-color: #005a9c;
 }
 
 @media (max-width: 768px) {
@@ -665,7 +663,7 @@ section {
 .features .tab-pane ul i {
     font-size: 20px;
     padding-right: 4px;
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .features .tab-pane p:last-child {
@@ -702,12 +700,12 @@ section {
     transition: 0.5s;
     margin: 10px;
     color: #fff;
-    background: #ef6603;
+    background: #005a9c;
 }
 
 .cta .cta-btn:hover {
     background: #fff;
-    color: #ef6603;
+    color: #005a9c;
 }
 
 @media (max-width: 1024px) {
@@ -769,7 +767,7 @@ section {
 }
 
 .services .title a:hover {
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .services .description {
@@ -819,12 +817,12 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .portfolio #portfolio-flters li.filter-active::before,
 .portfolio #portfolio-flters li.filter-active::after {
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .portfolio .portfolio-item {
@@ -877,7 +875,7 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-    color: #fd9f5b;
+    color: #005a9c;
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link {
@@ -903,7 +901,7 @@ section {
 }
 
 .portfolio .portfolio-item .portfolio-links a:hover {
-    color: #fd9f5b;
+    color: #005a9c;
 }
 
 .portfolio .portfolio-item:hover .portfolio-img img {
@@ -938,14 +936,14 @@ section {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #ef6603;
+    border: 1px solid #005a9c;
 }
 
 .portfolio-details
     .portfolio-details-slider
     .swiper-pagination
     .swiper-pagination-bullet-active {
-    background-color: #ef6603;
+    background-color: #005a9c;
 }
 
 .portfolio-details .portfolio-info {
@@ -1056,11 +1054,11 @@ section {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #ef6603;
+    border: 1px solid #005a9c;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #ef6603;
+    background-color: #005a9c;
 }
 
 /*--------------------------------------------------------------
@@ -1088,7 +1086,7 @@ section {
 
 .pricing h4 {
     font-size: 36px;
-    color: #ef6603;
+    color: #005a9c;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
     margin-bottom: 20px;
@@ -1120,7 +1118,7 @@ section {
 }
 
 .pricing ul i {
-    color: #ef6603;
+    color: #005a9c;
     font-size: 18px;
     padding-right: 4px;
 }
@@ -1138,7 +1136,7 @@ section {
 }
 
 .pricing .btn-buy {
-    background: #ef6603;
+    background: #005a9c;
     display: inline-block;
     padding: 8px 35px 10px 35px;
     border-radius: 50px;
@@ -1156,12 +1154,12 @@ section {
 }
 
 .pricing .featured {
-    border: 2px solid #ef6603;
+    border: 2px solid #005a9c;
 }
 
 .pricing .featured h3 {
     color: #fff;
-    background: #ef6603;
+    background: #005a9c;
 }
 
 .pricing .advanced {
@@ -1173,7 +1171,7 @@ section {
     z-index: 1;
     font-size: 14px;
     padding: 1px 0 3px 0;
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
 }
 
@@ -1198,7 +1196,7 @@ section {
 .faq .faq-list .question {
     display: block;
     position: relative;
-    font-family: #ef6603;
+    font-family: #005a9c;
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -1229,7 +1227,7 @@ section {
 }
 
 .faq .faq-list .collapsed:hover {
-    color: #ef6603;
+    color: #005a9c;
 }
 
 .faq .faq-list .collapsed .icon-show {
@@ -1338,7 +1336,7 @@ section {
 
 .contact .info i {
     font-size: 20px;
-    color: #ef6603;
+    color: #005a9c;
     float: left;
     width: 44px;
     height: 44px;
@@ -1373,7 +1371,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
 }
 
@@ -1443,7 +1441,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-    background: #ef6603;
+    background: #005a9c;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -1556,7 +1554,7 @@ section {
 #footer .social-links a {
     font-size: 18px;
     display: inline-block;
-    background: #ef6603;
+    background: #005a9c;
     color: #fff;
     line-height: 1;
     padding: 8px 0;
@@ -1588,7 +1586,7 @@ section {
     outline-width: 1px;
 }
 .container .features--card {
-    outline: solid 0px #ef6603;
+    outline: solid 0px #005a9c;
     margin: 0.5em;
     margin-top: 40px;
     height: 300px;

@@ -13,46 +13,14 @@
 </head>
 
 <body class="my-login-page">
-    <header id="header" class="fixed-top d-flex align-items-center ">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="logo">
-                <h1><a href="index.html">Equivalence</a></h1>
-            </div>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#Features">Features</a></li>
-                    <li><a class="nav-link scrollto" href="#howItWorks">How to use</a></li>
-                    <li class="dropdown "><a href class="text-decoration-none">
-                            <span>Request<span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a class="text-decoration-none"
-                                    href="{{ route('applicant.choose.your.certificate') }}">Request</a></li>
-                            <li>
-                                <form action="{{ route('applicant.logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="border-0 bg-white w-100">
-                                        <a class="text-decoration-none w-100">
-                                            Logout
-                                        </a>
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="#faq">Q & A</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-        </div>
-    </header>
+    @include('../partitions.applicant-header')
+
     <section class="py-5 pt-5 mt-5">
         <div class="container pt-5 mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8">
                     <div class="text-center mb-4">
-                        <h2 class="fw-bold text-uppercase" style="color: #ef6603;">Equivalence</h2>
+                        <img src="{{ asset('assets/imgs/logo.png') }}" alt="">
                     </div>
                     <div class="card shadow-sm border-0">
                         <div class="card-body p-4">
