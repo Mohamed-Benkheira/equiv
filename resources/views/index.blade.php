@@ -32,6 +32,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
 
+
 </head>
 
 <body>
@@ -40,8 +41,7 @@
     @include('partitions.guest-header')
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-end align-items-center"
-        style="background-image: url({{ asset('assets/img/hero.png') }});background-size: cover">
+    <section id="hero" class="d-flex flex-column justify-content-end align-items-center" {{-- style="background-image: url({{ asset('assets/img/hero.png') }});background-size: cover" --}}>
         <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
 
 

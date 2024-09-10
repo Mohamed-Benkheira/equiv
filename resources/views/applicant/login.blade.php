@@ -13,9 +13,9 @@
 </head>
 
 <body class="my-login-page">
-    <div class="" style="height: 70px ; background-color:#00415a;">
-        @include('../partitions.guest-header')
-    </div>
+    {{-- <div class="" style="height: 70px ; background-color:#00415a !important;"> --}}
+    {{-- @include('../partitions.guest-header') --}}
+    {{-- </div> --}}
 
     <section class="h-100">
         <div class="container h-100">

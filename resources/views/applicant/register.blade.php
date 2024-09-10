@@ -13,15 +13,12 @@
 </head>
 
 <body class="my-login-page">
-    <div class="" style="height: 70px ; background-color:#00415a;">
-        @include('../partitions.guest-header')
-    </div>
     <section class="">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="card-wrapper">
                     <div class="brand">
-                        <h2 class="text-center"><a href="#">Equivalence</a></h2>
+                        <h2 class="text-center"><a href="{{ route('welcome') }}">Equivalence</a></h2>
                     </div>
                     <div class="card fat">
                         {{-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}

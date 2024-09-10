@@ -240,7 +240,8 @@
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        Click <a href="/register.html">sign up</a> button on the header to register
+                                        Click <a href="{{ route('applicant.choose.your.certificate') }}">sign up</a>
+                                        button on the header to register
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
@@ -398,7 +399,8 @@
                         <p> Experience Seamless Diploma Recognition</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="register.html">Sign up now</a>
+                        <a class="cta-btn align-middle"
+                            href="{{ route('applicant.choose.your.certificate') }}">Request now</a>
                     </div>
                 </div>
 
