@@ -2,14 +2,14 @@
 <header id="header" class="fixed-top d-flex align-items-center d-none d-lg-flex     ">
     <div class="container d-flex align-items-center justify-content-between">
         <div class="logo">
-            <h1><a href="/">Equivalence</a></h1>
+            <h1><a href="{{ route('welcome') }}">Equivalence</a></h1>
         </div>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="#Features">Features</a></li>
-                <li><a class="nav-link scrollto" href="#howItWorks">How to use</a></li>
+                <li><a class="nav-link scrollto " href="{{ route('welcome') }}#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#about">About</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#Features">Features</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#howItWorks">How to use</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,7 +23,7 @@
                     </ul>
                 </li>
 
-                <li><a class="nav-link scrollto" href="#faq">Q & A</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#faq">Q & A</a></li>
             </ul>
         </nav>
     </div>
