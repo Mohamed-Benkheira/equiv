@@ -27,25 +27,6 @@ h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-#mobile-navbar {
-    transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    top: 0;
-    width: 100%;
-    background-color: transparent; /* Transparent when on top */
-}
-
-#mobile-navbar.nav-hidden {
-    top: -100px; /* Hide the navbar when scrolling down */
-}
-
-#mobile-navbar.nav-colored {
-    background-color: rgba(
-        42,
-        44,
-        57,
-        0.9
-    ); /* Solid background when scrolling up */
-}
 
 #arabic {
     font-family: "Tajawal", sans-serif;

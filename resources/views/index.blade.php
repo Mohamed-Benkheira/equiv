@@ -535,29 +535,7 @@
             grabCursor: true,
         });
     </script>
-    <script>
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('mobile-navbar');
 
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Check if we're scrolling down or up
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                navbar.classList.add('nav-hidden');
-            } else {
-                // Scrolling up
-                navbar.classList.remove('nav-hidden');
-                if (scrollTop > 100) { // Add background when scrolled up beyond 100px
-                    navbar.classList.add('nav-colored');
-                } else {
-                    navbar.classList.remove('nav-colored');
-                }
-            }
-            lastScrollTop = scrollTop;
-        });
-    </script>
 </body>
 
 </html>

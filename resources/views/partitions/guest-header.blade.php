@@ -1,5 +1,5 @@
 <!-- Desktop Navbar (hidden on mobile) -->
-<header id="header" class="fixed-top d-flex align-items-center d-none d-lg-flex     ">
+<header id="header" class="fixed-top d-flex align-items-center d-none d-lg-flex">
     <div class="container d-flex align-items-center justify-content-between">
         <div class="logo">
             <h1><a href="{{ route('welcome') }}">Equivalence</a></h1>
@@ -30,8 +30,9 @@
 
 </header>
 
-<nav id="mobile-navbar" class="d-lg-none navbar fixed-top">
-    <div class="container-fluid w-100 d-flex flex-column align-items-center">
+<nav id="mobile-navbar " class="d-lg-none navbar fixed-top shadow-lg rounded-4 rounded-top-0 "
+    style="background-color: #131c41">
+    <div class="container-fluid w-100 d-flex flex-column align-items-center ">
         <!-- Logo -->
         <a class="navbar-brand text-center" href="{{ route('welcome') }}">
             <h1>Equivalence</h1>
