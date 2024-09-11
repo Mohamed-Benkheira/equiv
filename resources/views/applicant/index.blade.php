@@ -40,7 +40,6 @@
     <!-- ======= Header ======= -->
     @include('partitions.applicant-header')
 
-    <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-end align-items-center"
         style="background-image: url({{ asset('assets/img/hero.png') }});background-size: cover">
         <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
@@ -145,7 +144,7 @@
                             Innovation and User Experience: By focusing on innovation and user experience, we aim to
                             make the diploma recognition journey as smooth and accessible as possible.
                         </p>
-                        <a href="#" class="btn-learn-more">Learn More</a>
+                        <a href="https://www.mesrs.dz/index.php/en/home/" class="btn-learn-more">Learn More</a>
                     </div>
                 </div>
 
@@ -241,12 +240,13 @@
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        Click <a href="{{ route('applicant.choose.your.certificate') }}">sign up</a>
-                                        button on the header to register
+                                        Click <a href="{{ route('applicant.choose.your.certificate') }}">Request</a>
+                                        button on the
+                                        header to Request
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        Check your email after you register to activate your account
+                                        Check your email to see the status of the request
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
@@ -492,7 +492,7 @@
 
                     <li class="nav-item"><a
                             href="
-                        https://www.mesrs.dz/index.php/en/ethics-and-deontology/"
+                    https://www.mesrs.dz/index.php/en/ethics-and-deontology/"
                             class="nav-link px-2 text-white">Ethics </a>
                     </li>
                     <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/international-cooperation/"
@@ -516,9 +516,10 @@
     <!-- Vendor JS Files -->
 
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
@@ -526,7 +527,38 @@
     <script src="https://kit.fontawesome.com/cbd9fa1bec.js" crossorigin="anonymous"></script>
     <!--  Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: '4',
+            spaceBetween: 5,
+            freeMode: true,
+            grabCursor: true,
+        });
+    </script>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('mobile-navbar');
 
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check if we're scrolling down or up
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.classList.add('nav-hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('nav-hidden');
+                if (scrollTop > 100) { // Add background when scrolled up beyond 100px
+                    navbar.classList.add('nav-colored');
+                } else {
+                    navbar.classList.remove('nav-colored');
+                }
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
 </body>
 
 </html>

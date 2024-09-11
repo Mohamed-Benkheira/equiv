@@ -30,58 +30,55 @@
 
 </header>
 
-
-<!-- Mobile Navbar (hidden on desktop) -->
-<nav class="d-lg-none navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid w-100  ">
+<nav id="mobile-navbar" class="d-lg-none navbar fixed-top">
+    <div class="container-fluid w-100 d-flex flex-column align-items-center">
         <!-- Logo -->
-        <a class="navbar-brand" href="{{ route('welcome') }}">
+        <a class="navbar-brand text-center" href="{{ route('welcome') }}">
             <h1>Equivalence</h1>
         </a>
 
-        <!-- Toggle button for mobile menu -->
-        <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
-        </button>
+        <!-- Navbar links centered under the logo with Swiper -->
+        <div class="w-100">
+            <!-- Swiper Container -->
+            <div class="swiper-container">
+                <!-- Swiper Wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Navigation Links as Swiper Slides -->
+                    <div class="swiper-slide nav-item">
+                        <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#hero">Home</a>
+                    </div>
+                    <div class="swiper-slide nav-item">
+                        <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#about">About</a>
+                    </div>
+                    <div class="swiper-slide nav-item">
+                        <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#Features">Features</a>
+                    </div>
+                    <div class="swiper-slide nav-item">
+                        <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#howItWorks">How to
+                            use</a>
+                    </div>
 
-        <!-- Navbar links for both mobile and desktop -->
-        <div class="collapse navbar-collapse rounded rounded-3 w-100" id="navbarNav"
-            style="background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%) ">
-            <ul class="navbar-nav ms-auto">
-                <!-- Navigation Links -->
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ route('welcome') }}#hero">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ route('welcome') }}#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ route('welcome') }}#Features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ route('welcome') }}#howItWorks">How to use</a>
-                </li>
+                    <!-- Dropdown for login options as a Swiper Slide -->
+                    <div class="swiper-slide nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-center" href="#" id="loginDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu text-center" aria-labelledby="loginDropdown"
+                            style="background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%);">
+                            <li><a class="dropdown-item text-white" href="{{ route('applicant.login') }}">Login</a>
+                            </li>
+                            <li><a class="dropdown-item text-white" href="{{ route('applicant.register') }}">Sign
+                                    up</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Dropdown for login options -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Login
-                    </a>
-                    <ul class="dropdown-menu " aria-labelledby="loginDropdown"
-                        style="background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%) ">
-                        <li><a class="dropdown-item text-white" href="{{ route('applicant.login') }}">Login</a></li>
-                        <li><a class="dropdown-item text-white" href="{{ route('applicant.register') }}">Sign up</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- FAQ Link -->
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="{{ route('welcome') }}#faq">Q % A</a>
-                </li>
-            </ul>
+                    <!-- FAQ Link as Swiper Slide -->
+                    <div class="swiper-slide nav-item">
+                        <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#faq">Q & A</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

@@ -526,7 +526,38 @@
     <script src="https://kit.fontawesome.com/cbd9fa1bec.js" crossorigin="anonymous"></script>
     <!--  Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: '4',
+            spaceBetween: 5,
+            freeMode: true,
+            grabCursor: true,
+        });
+    </script>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('mobile-navbar');
 
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check if we're scrolling down or up
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.classList.add('nav-hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('nav-hidden');
+                if (scrollTop > 100) { // Add background when scrolled up beyond 100px
+                    navbar.classList.add('nav-colored');
+                } else {
+                    navbar.classList.remove('nav-colored');
+                }
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
 </body>
 
 </html>
