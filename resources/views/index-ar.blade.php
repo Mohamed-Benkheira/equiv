@@ -32,7 +32,9 @@
     <link href="{{ asset('assets/css/style-ar.css') }}" rel="stylesheet">
 
 
+    <style>
 
+    </style>
 </head>
 
 <body>
@@ -90,21 +92,20 @@
             <div class="w-100">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide nav-item">
+                        <div class="swiper-slide nav-item ">
                             <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#hero">الرئيسية</a>
                         </div>
-                        <div class="swiper-slide nav-item">
+                        <div class="swiper-slide nav-item ">
                             <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#about">حول</a>
                         </div>
-                        <div class="swiper-slide nav-item">
+                        <div class="swiper-slide nav-item ">
                             <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#Features">الميزات</a>
                         </div>
-                        <div class="swiper-slide nav-item">
+                        <div class="swiper-slide nav-item ">
                             <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#howItWorks">كيفية
                                 الاستخدام</a>
                         </div>
-
-                        <div class="swiper-slide nav-item dropdown">
+                        <div class="swiper-slide nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-center" href="#" id="loginDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 تسجيل الدخول
@@ -117,12 +118,10 @@
                                         href="{{ route('applicant.register') }}">التسجيل</a></li>
                             </ul>
                         </div>
-
-                        <div class="swiper-slide nav-item">
+                        <div class="swiper-slide nav-item ">
                             <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#faq">الأسئلة
                                 الشائعة</a>
                         </div>
-
                         <div class="swiper-slide nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="mobileLanguageDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -139,6 +138,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </nav>
 
@@ -629,10 +629,14 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: '4',
-            spaceBetween: 5,
-            freeMode: true,
-            grabCursor: true,
+            slidesPerView: '3', // Allow multiple slides to be shown based on content size
+            spaceBetween: 5, // Space between slides (matches CSS gap)
+            freeMode: true, // Allows free scrolling without snapping to slides
+            loop: false, // Disable loop to prevent infinite scrolling
+            scrollbar: {
+                el: '.swiper-scrollbar', // Optional scrollbar for better UX
+                hide: false,
+            },
         });
     </script>
 
