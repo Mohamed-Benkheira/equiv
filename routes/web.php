@@ -23,5 +23,13 @@ Route::get('/', function () {
     return view('index');
 })->name('welcome');
 
+Route::get('/ar', function () {
+    if (Auth::guard('applicant')->check()) {
+        return redirect()->route('applicant.index-ar'); // Replace with your applicant's dashboard or desired view route
+    }
+    return view('index-ar');
+})->name('welcome.ar');
+
+
 require __DIR__ . '/applicant.php';
 // require __DIR__ . '/auth.php';

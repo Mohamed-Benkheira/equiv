@@ -26,6 +26,18 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#faq">Q & A</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDrobdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Language
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="languageDrobdown"
+                        style="background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%) ">
+                        <li><a class="dropdown-item text-white" href="{{ route('welcome') }}">English</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ route('welcome.ar') }}">Arabic</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
     </div>
@@ -85,6 +97,18 @@
                     <div class="swiper-slide nav-item">
                         <a class="nav-link text-center scrollto" href="{{ route('welcome') }}#faq">Q & A</a>
                     </div>
+                    <div class="swiper-slide nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="mobileLanguageDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="mobileLanguageDropdown"
+                            style="background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%)">
+                            <li><a class="dropdown-item text-white" href="{{ route('welcome') }}">English</a></li>
+                            <li><a class="dropdown-item text-white" href="{{ route('welcome.ar') }}">Arabic</a></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>

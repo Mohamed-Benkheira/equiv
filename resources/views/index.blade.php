@@ -56,7 +56,8 @@
                         البحث
                         العلمي
                     </p>
-                    <p class="animate__animated fanimate__adeInUp fs-5 m-0 p-0" id="arabic"> ⴰⵖⵍⵉⴼ ⵏ ⵓ ⵙⴻⵍⵎⴻⴷ ⵓⵏⵏⵉⴳ ⴷ
+                    <p class="animate__animated fanimate__adeInUp fs-5 m-0 p-0" id="arabic"> ⴰⵖⵍⵉⴼ ⵏ ⵓ ⵙⴻⵍⵎⴻⴷ ⵓⵏⵏⵉⴳ
+                        ⴷ
                         ⵓⵏⴰⴷⵉ
                         ⵓⵙⵙⵏⴰⵏ
                     </p>
@@ -73,12 +74,18 @@
                 <div class="carousel-container">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
                     <h2 class="animate__animated animate__fadeInDown">Equivalence</h2>
-                    <p class="animate__animated animate__fadeInUp">Our platform simplifies the process of evaluating and
-                        recognizing your academic qualifications, ensuring a smooth journey for your educational and
-                        professional mobility.</p>
+                    <p class="animate__animated animate__fadeInUp">"منصتنا تبسط عملية تقييم واعتماد مؤهلاتك الأكاديمية،
+                        مما يضمن تجربة سلسة لسيرتك التعليمية والمهنية."
+
+
+
+
+
+
+                    </p>
                     <a href="#about"
-                        class="btn-get-started animate__animated animate__fadeInUp scrollto text-decoration-none">Read
-                        More</a>
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto text-decoration-none">اعرف
+                        المزيد</a>
                 </div>
             </div>
 
@@ -116,36 +123,42 @@
             <div class="container">
 
                 <div class="section-title" data-aos="zoom-out">
-                    <h2>About</h2>
-                    <p>Who we are</p>
+                    <h2>عن</h2>
+                    <p>من نحن</p>
                 </div>
 
-                <div class="row content" data-aos="fade-up">
+                <div class="row content " data-aos="fade-up">
                     <div class="col-lg-6">
                         <p>
-                            EQUIVALENCE is a platform developed for the MINISTRY OF HIGHER EDUCATION AND SCIENTIFIC
-                            RESEARCH, dedicated to simplifying the diploma equivalence process for students, graduates,
-                            and professionals. Our mission is to provide a secure, intuitive, and efficient platform
-                            that harmonizes the assessment and recognition of academic qualifications both locally and
-                            internationally.
+                            EQUIVALENCE هي منصة تم تطويرها لصالح وزارة التعليم العالي والبحث العلمي، مكرسة لتبسيط عملية
+                            معادلة الد diplomas للطلاب والخريجين والمهنيين. مهمتنا هي تقديم منصة آمنة وسهلة وفعالة تنسق
+                            تقييم والاعتراف بالمؤهلات الأكاديمية محليًا ودوليًا.
                         </p>
                         <ul>
-                            <li><i class="ri-check-double-line"></i> Facilitating Mobility: We believe in facilitating
-                                educational and professional mobility by offering a reliable system for the verification
-                                and comparison of diplomas.</li>
-                            <li><i class="ri-check-double-line"></i>Expertise in Education and Technology: Our team
-                                consists of experts in education, technology, and data security.</li>
-                            <li><i class="ri-check-double-line"></i> Innovation et Expérience Utilisateur: En mettant
-                                l'accent sur l'innovation et l'expérience utilisateur, nous visons à rendre le parcours
-                                de reconnaissance des diplômes aussi fluide et accessible que possible.</li>
+                            <li>
+                                {{-- <i class="ri-check-double-line"></i> --}}
+                                تسهيل التنقل: نعتقد في تسهيل التنقل التعليمي
+                                والمهني من خلال تقديم نظام موثوق للتحقق ومقارنة الد diplomas.
+                            </li>
+                            <li>
+                                {{-- <i class="ri-check-double-line"></i> --}}
+                                الخبرة في التعليم والتكنولوجيا: فريقنا يتكون من
+                                خبراء في التعليم والتكنولوجيا وأمن البيانات.
+                            </li>
+                            <li>
+                                {{-- <i class="ri-check-double-line"></i> --}}
+                                الابتكار وتجربة المستخدم: من خلال التركيز على
+                                الابتكار وتجربة المستخدم، نهدف إلى جعل رحلة الاعتراف بالد diplomas سلسة وقابلة للوصول
+                                قدر الإمكان.
+                            </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <p>
-                            Innovation and User Experience: By focusing on innovation and user experience, we aim to
-                            make the diploma recognition journey as smooth and accessible as possible.
+                            الابتكار وتجربة المستخدم: من خلال التركيز على الابتكار وتجربة المستخدم، نهدف إلى جعل رحلة
+                            الاعتراف بالد diplomas سلسة وقابلة للوصول قدر الإمكان.
                         </p>
-                        <a href="https://www.mesrs.dz/index.php/en/home/" class="btn-learn-more">Learn More</a>
+                        <a href="https://www.mesrs.dz/index.php/en/home/" class="btn-learn-more">اعرف المزيد</a>
                     </div>
                 </div>
 
@@ -155,21 +168,23 @@
         <div class="features " data-aos="fade-up" id="Features">
 
             <div class="container text-center w-75">
-                <div class="section-title text-start" data-aos="zoom-out">
-                    <h2>our main</h2>
-                    <p>Features</p>
+                <div class="section-title text-end" data-aos="zoom-out">
+                    <h2>رئيسي</h2>
+                    <p>الميزات</p>
                     <p class="text-muted fs-5">
-                        Main Features of Our Diploma Equivalence Platform
+                        الميزات الرئيسية لمنصة معادلة الد diplomas لدينا
                     </p>
                 </div>
 
-                <div class="row  mb-5 pb-5 g-4">
+                <div class="row mb-5 pb-5 g-4">
                     <div class="col-lg-4 col-md-6">
                         <div
                             class="features--card d-flex justify-content-center align-items-center p-3 py-5 text-decoration-none">
                             <div class="text-center">
-                                <i class="fa-brands fa-uikit" style="font-size: 64px"></i>
-                                <p class="mt-3">User-Friendly <br />Interface</p>
+                                <i class="fa-brands fa-uikit"
+                                    style="font-size: 64px; font-family: 'Raleway' !important,
+                                    sans-serif;"></i>
+                                <p class="mt-3">واجهة <br />مستخدم سهلة</p>
                             </div>
                         </div>
                     </div>
@@ -177,10 +192,10 @@
                         <div
                             class="features--card d-flex justify-content-center align-items-center p-3 py-5 text-decoration-none">
                             <div class="text-center">
-                                <i class="fa-solid fa-user-lock" style="font-size: 64px"></i>
+                                <i class="fa-solid fa-user-lock features-icon" style="font-size: 64px"></i>
                                 <p class="mt-3">
-                                    Secure Verification <br />
-                                    System
+                                    نظام تحقق <br />
+                                    آمن
                                 </p>
                             </div>
                         </div>
@@ -189,8 +204,8 @@
                         <div
                             class="features--card d-flex justify-content-center align-items-center p-3 py-5 text-decoration-none">
                             <div class="text-center">
-                                <i class="fa-solid fa-graduation-cap" style="font-size: 64px"></i>
-                                <p class="mt-3">Automated Equivalence <br />Assessment</p>
+                                <i class="fa-solid fa-graduation-cap features-icon" style="font-size: 64px"></i>
+                                <p class="mt-3">تقييم <br />معادلة تلقائي</p>
                             </div>
                         </div>
                     </div>
@@ -201,28 +216,28 @@
         <!-- ======= Features Section ======= -->
         <section id="howItWorks" class="features">
             <div class="container">
-                <ul class="nav nav-tabs row d-flex justify-content-center pb-3 ">
+                <ul class="nav nav-tabs row d-flex justify-content-center pb-3">
                     <li class="nav-item col-3" data-aos="zoom-in">
                         <a class="nav-link active show rounded-3" data-bs-toggle="tab" href="#tab-1">
-                            <h4 class="d-none d-lg-block">Step</h4>
+                            <h4 class="d-none d-lg-block">الخطوة</h4>
                             <i class="fa-solid fa-0"></i>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
                         <a class="nav-link rounded-3" data-bs-toggle="tab" href="#tab-2">
-                            <h4 class="d-none d-lg-block">Step</h4>
+                            <h4 class="d-none d-lg-block">الخطوة</h4>
                             <i class="fa-solid fa-1"></i>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
                         <a class="nav-link rounded-3" data-bs-toggle="tab" href="#tab-3">
-                            <h4 class="d-none d-lg-block">Step</h4>
+                            <h4 class="d-none d-lg-block">الخطوة</h4>
                             <i class="fa-solid fa-2"></i>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
                         <a class="nav-link rounded-3" data-bs-toggle="tab" href="#tab-4">
-                            <h4 class="d-none d-lg-block">Step</h4>
+                            <h4 class="d-none d-lg-block">الخطوة</h4>
                             <i class="fa-solid fa-3"></i>
                         </a>
                     </li>
@@ -232,29 +247,28 @@
                     <div class="tab-pane active show" id="tab-1">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <h3>Account Creation</h3>
+                                <h3>إنشاء حساب</h3>
                                 <p>
-                                    To perform any operations on the platform, the applicant must first create an
-                                    account to obtain a username and password. This initial step ensures secure access
-                                    to all services and personalized features available on the platform
+                                    للقيام بأي عمليات على المنصة، يجب على المتقدم أولاً إنشاء حساب للحصول على اسم مستخدم
+                                    وكلمة مرور. تضمن هذه الخطوة الأولية الوصول الآمن إلى جميع الخدمات والميزات الشخصية
+                                    المتاحة على المنصة.
                                 </p>
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        Click <a href="{{ route('applicant.register') }}">sign up</a> button on the
-                                        header to register
+                                        اضغط على <a href="{{ route('applicant.register') }}">زر التسجيل</a> في العنوان
+                                        للتسجيل
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        Check your email after you register to activate your account
+                                        تحقق من بريدك الإلكتروني بعد التسجيل لتفعيل حسابك
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold"> Troubleshoot Access Issues:</span> If you do not receive
-                                        your activation email, check your spam folder or verify the email address
-                                        provided during registration. If you still have trouble accessing your account
-                                        (e.g., activation link not received, account not activated), contact the
-                                        equivalence service at sde@mesrs.dz.
+                                        <span class="fw-bold">تحليل مشكلات الوصول:</span> إذا لم تتلقَ رسالة التفعيل،
+                                        تحقق من مجلد الرسائل غير المرغوب فيها أو تحقق من عنوان البريد الإلكتروني المقدم
+                                        أثناء التسجيل. إذا كنت لا تزال تواجه مشكلة في الوصول إلى حسابك (مثل عدم تلقي
+                                        رابط التفعيل، أو عدم تفعيل الحساب)، اتصل بخدمة المعادلة على sde@mesrs.dz.
                                     </li>
                                 </ul>
                             </div>
@@ -267,26 +281,22 @@
                     <div class="tab-pane" id="tab-2">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <h3>Login</h3>
+                                <h3>تسجيل الدخول</h3>
                                 <p>
-                                    After creating and activating your account, you will need to log in to the platform
-                                    to access its features and services. Logging in ensures that you can securely manage
-                                    your personal information and track your requests.
+                                    بعد إنشاء حسابك وتفعيله، ستحتاج إلى تسجيل الدخول إلى المنصة للوصول إلى ميزاتها
+                                    وخدماتها. تسجيل الدخول يضمن لك إدارة معلوماتك الشخصية بأمان وتتبع طلباتك.
                                 </p>
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold"> Log In to Your Account:</span> Use your username (email
-                                        address) and password to log in.
+                                        <span class="fw-bold">تسجيل الدخول إلى حسابك:</span> استخدم اسم المستخدم
+                                        (البريد الإلكتروني) وكلمة المرور لتسجيل الدخول.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        If you have trouble accessing your account, contact the equivalence service at
-                                        sde@mesrs.dz.
+                                        إذا واجهت مشكلة في الوصول إلى حسابك، اتصل بخدمة المعادلة على sde@mesrs.dz.
                                     </li>
                                 </ul>
-
-
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
                                 <img src="{{ asset('assets/img/features-2.png') }}" alt=""
@@ -297,46 +307,42 @@
                     <div class="tab-pane" id="tab-3">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <h3> Fill Out the Required Forms</h3>
+                                <h3>املأ النماذج المطلوبة</h3>
                                 <p>
-                                    After logging in and providing your personal information, the next step is to
-                                    complete all required forms and submit your equivalence request. This process
-                                    involves providing detailed information about your diploma and uploading the
-                                    necessary documents in the specified format.
+                                    بعد تسجيل الدخول وتقديم معلوماتك الشخصية، الخطوة التالية هي تعبئة جميع النماذج
+                                    المطلوبة وتقديم طلب المعادلة الخاص بك. تشمل هذه العملية تقديم معلومات مفصلة عن
+                                    دبلومك وتحميل المستندات اللازمة بالتنسيق المحدد.
                                 </p>
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold"> Personal Information and Forms:</span> Fill out all
-                                        personal details accurately and complete all mandatory forms provided by the
-                                        platform.
+                                        <span class="fw-bold">المعلومات الشخصية والنماذج:</span> قم بتعبئة جميع
+                                        التفاصيل الشخصية بدقة وأكمل جميع النماذج الإلزامية المقدمة من المنصة.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">New Request:</span> Click on the “New Request” button..
+                                        <span class="fw-bold">طلب جديد:</span> انقر على زر "طلب جديد".
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold"> Diploma Information:</span> Provide detailed information
-                                        about the diploma to be evaluated for equivalence.
+                                        <span class="fw-bold">معلومات الدبلوم:</span> قدم معلومات مفصلة عن الدبلوم الذي
+                                        سيتم تقييمه للمعادلة.
                                     </li>
                                     <li>
-
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Required Documents: </span>Submit the necessary documents
-                                        as per the decree. Consult the decree via the link:
+                                        <span class="fw-bold">المستندات المطلوبة:</span> قدم المستندات اللازمة وفقاً
+                                        للمرسوم. استشر المرسوم عبر الرابط:
                                         http://equiv.mesrs.dz:8080/ext-equiv/images/Circulaire_n_1260_fr.pdf.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">PDF Format:</span> Ensure all required documents are
-                                        submitted in PDF format, including the information contained in the forms for
-                                        each document.
+                                        <span class="fw-bold">تنسيق PDF:</span> تأكد من تقديم جميع المستندات المطلوبة
+                                        بصيغة PDF، بما في ذلك المعلومات الواردة في النماذج لكل مستند.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Confirm and Print:</span> Confirm your submission and
-                                        print the receipt of the application submission.
+                                        <span class="fw-bold">تأكيد وطباعة:</span> قم بتأكيد تقديم طلبك واطبع إيصال
+                                        تقديم الطلب.
                                     </li>
                                 </ul>
                             </div>
@@ -349,32 +355,31 @@
                     <div class="tab-pane" id="tab-4">
                         <div class="row">
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <h3>Processing and Notification</h3>
+                                <h3>المعالجة والإشعارات</h3>
                                 <p>
-                                    After submitting your equivalence request, the platform's equivalence services will
-                                    process and verify your application. You will then be notified of the status and
-                                    outcome of your request.
+                                    بعد تقديم طلب المعادلة الخاص بك، ستقوم خدمات المعادلة في المنصة بمعالجة والتحقق من
+                                    طلبك. بعد ذلك، سيتم إبلاغك بحالة ونتيجة طلبك.
                                 </p>
                                 <ul>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Request Processing:</span> The requests are processed and
-                                        verified by the Equivalence Services.
+                                        <span class="fw-bold">معالجة الطلب:</span> يتم معالجة الطلبات والتحقق منها
+                                        بواسطة خدمات المعادلة.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Status Notification: </span> After processing, you will
-                                        be notified of the status of your request via the equivalence platform.
+                                        <span class="fw-bold">إشعار الحالة:</span> بعد المعالجة، سيتم إشعارك بحالة طلبك
+                                        عبر منصة المعادلة.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Appointment:</span> Once the equivalence request is
-                                        signed, you will be informed of the proposed appointment.
+                                        <span class="fw-bold">موعد:</span> بمجرد توقيع طلب المعادلة، سيتم إعلامك
+                                        بالموعد المقترح.
                                     </li>
                                     <li>
                                         <i class="ri-check-double-line"></i>
-                                        <span class="fw-bold">Document Presentation:</span> When collecting the
-                                        equivalence certificate, present the original copies of all your diplomas.
+                                        <span class="fw-bold">تقديم المستندات:</span> عند استلام شهادة المعادلة، قدم
+                                        النسخ الأصلية لجميع دبلوماتك.
                                     </li>
                                 </ul>
                             </div>
@@ -386,7 +391,7 @@
                     </div>
                 </div>
 
-            </div>-->
+            </div>
         </section>
         <!-- End Features Section -->
 
@@ -395,12 +400,13 @@
             <div class="container">
 
                 <div class="row" data-aos="zoom-out">
-                    <div class="col-lg-9 text-center text-lg-start">
+                    <div class="col-lg-9 text-center text-lg-end">
                         <h3>Equivalence</h3>
-                        <p> Experience Seamless Diploma Recognition</p>
+                        <p> قدم طلب معادلة شهادتك الآن</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="{{ route('applicant.register') }}">Sign up now</a>
+                        <a class="cta-btn align-middle" href="{{ route('applicant.choose.your.certificate') }}">سجل
+                            الآن</a>
                     </div>
                 </div>
 
@@ -412,56 +418,51 @@
             <div class="container">
 
                 <div class="section-title" data-aos="zoom-out">
-                    <h2>F.A.Q</h2>
-                    <p>Frequently Asked Questions</p>
+                    <h2>الأسئلة الشائعة</h2>
+                    <p>الأسئلة المتكررة</p>
                 </div>
 
                 <ul class="faq-list">
 
                     <li>
-                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">How long does it
-                            take to get my diploma evaluated ? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">كم من الوقت يستغرق
+                            تقييم دبلومي؟ <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
-                                non.
+                                يتم تحديد المدة بناءً على عدد الطلبات والمستندات المقدمة. عادةً ما يتم معالجة الطلبات
+                                خلال فترة زمنية معقولة.
                             </p>
                         </div>
                     </li>
 
                     <li>
-                        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What documents are
-                            required for the equivalence assessment ? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">ما هي المستندات
+                            المطلوبة لتقييم المعادلة؟ <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                                turpis massa tincidunt dui.
+                                تشمل المستندات المطلوبة عادةً الشهادات الدراسية الأصلية وصور عنها، وأي مستندات أخرى
+                                تحددها المنصة وفقاً للمرسوم.
                             </p>
                         </div>
                     </li>
 
                     <li>
-                        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Can I track the
-                            status of my application ? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">هل يمكنني تتبع حالة
+                            طلب التقييم؟ <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
-                                tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                                molestie at elementum eu facilisis sed odio morbi quis
+                                نعم، يمكنك تتبع حالة طلبك عبر المنصة. ستتلقى إشعارات عبر البريد الإلكتروني أو من خلال
+                                حسابك على المنصة.
                             </p>
                         </div>
                     </li>
                 </ul>
 
             </div>
-        </section><!-- End F.A.Q Section -->
+        </section><!-- نهاية قسم الأسئلة الشائعة -->
 
 
 
@@ -472,11 +473,10 @@
     <footer id="footer">
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-white fw-bold ">© 2024 EQUIVALENCE,<br> <span class=" fw-light">
-                        MINISTRY OF
-                        HIGHER
-                        EDUCATION AND SCIENTIFIC
-                        RESEARCH</span>
+                <p class="col-md-4 mb-0 text-white fw-bold ">© 2024 المعادلة,<br> <span class=" fw-light">
+                        وزارة
+                        التعليم العالي
+                        والبحث العلمي</span>
                 </p>
 
                 <a href="/"
@@ -485,23 +485,19 @@
                 </a>
 
                 <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Home</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link px-2 text-white">الرئيسية</a></li>
                     <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/home/"
-                            class="nav-link px-2 text-white">Minister</a></li>
-
-                    <li class="nav-item"><a
-                            href="
-                        https://www.mesrs.dz/index.php/en/ethics-and-deontology/"
-                            class="nav-link px-2 text-white">Ethics </a>
-                    </li>
+                            class="nav-link px-2 text-white">الوزير</a></li>
+                    <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/ethics-and-deontology/"
+                            class="nav-link px-2 text-white">الأخلاقيات</a></li>
                     <li class="nav-item"><a href="https://www.mesrs.dz/index.php/en/international-cooperation/"
                             class="nav-link px-2 text-white">
-                            I. Cooperation</a></li>
+                            التعاون الدولي</a></li>
                 </ul>
 
             </footer>
-            <div class="nav-item"><a href="#" class="nav-link px-2 text-white">Adress: 11, Chemin Doudou
-                    Mokhtar, Ben Aknoun – Alger – Algérie</a></div>
+            <div class="nav-item"><a href="#" class="nav-link px-2 text-white">العنوان: 11، طريق دودو مختار،
+                    بن عكنون – الجزائر – الجزائر</a></div>
 
             <div class="text-white">
                 +213 (0) 23-23-80-77 | +213 (0) 23-23-80-57
