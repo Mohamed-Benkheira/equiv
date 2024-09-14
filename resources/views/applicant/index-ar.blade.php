@@ -42,7 +42,7 @@
     <header id="header" class="fixed-top d-flex align-items-center d-none d-lg-flex">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
-                <h1><a href="/">التكافؤ</a></h1>
+                <h1><a href="/">Equivalence</a></h1>
             </div>
             <nav id="navbar" class="navbar">
                 <ul>
@@ -76,7 +76,7 @@
         <div class="container-fluid w-100 d-flex flex-column align-items-center">
             <!-- الشعار -->
             <a class="navbar-brand text-center" href="{{ route('welcome') }}">
-                <h1>التكافؤ</h1>
+                <h1>Equivalence</h1>
             </a>
 
             <!-- روابط شريط التنقل في وسط الشاشة تحت الشعار باستخدام Swiper -->
