@@ -16,14 +16,14 @@ use App\Http\Controllers\Auth\NormalUserLoginController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/en', function () {
     if (Auth::guard('applicant')->check()) {
         return redirect()->route('applicant.index'); // Replace with your applicant's dashboard or desired view route
     }
     return view('index');
 })->name('welcome');
 
-Route::get('/ar', function () {
+Route::get('/', function () {
     if (Auth::guard('applicant')->check()) {
         return redirect()->route('applicant.index-ar'); // Replace with your applicant's dashboard or desired view route
     }
