@@ -28,15 +28,17 @@
 
                             @if ($bacRequest->status === 'accepted')
                                 <div class="alert alert-success mt-4" role="alert">
-                                    Your request has been accepted. Please check your email for further information.
+                                    Your request has been accepted. Please check your email for further
+                                    information.(يرجى تفقد الايميل, تم قبول طلبك)
                                 </div>
                             @elseif ($bacRequest->status === 'declined')
                                 <div class="alert alert-danger mt-4" role="alert">
-                                    Your request has been rejected. Please contact support for more information.
+                                    Your request has been rejected. Please check your email for further
+                                    information.(يرجى تفقد الايميل, تم رفض طلبك)
                                 </div>
                             @else
                                 <div class="alert alert-primary mt-4" role="alert">
-                                    Your request is pending.
+                                    Your request is pending.(تحت المعالجة)
                                 </div>
                             @endif
                         </div>

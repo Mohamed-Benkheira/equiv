@@ -42,13 +42,14 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="school-name" class="form-label">School Name</label>
+                                    <label for="school-name" class="form-label">School Name (اسم المدرسة)</label>
                                     <input type="text" class="form-control" id="school-name" name="school_name"
                                         required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="certificate-date" class="form-label">Date of Certificate</label>
+                                    <label for="certificate-date" class="form-label">Date of Certificate (تاريخ
+                                        الشهادة)</label>
                                     <input type="date" class="form-control" id="certificate-date"
                                         name="certificate_date" required>
                                 </div>
@@ -62,15 +63,16 @@
 
                                 <div class="mb-3">
                                     <label for="bac-certificate-file" class="form-label">A copy of the baccalaureate, or
-                                        a foreign certificate recognized as equivalent</label>
+                                        a foreign certificate recognized as equivalent(نسخة من الباكالوريا او اي شهادة
+                                        معادلة لها)</label>
                                     <input class="form-control" type="file" id="bac-certificate-file"
                                         name="bac_certificate_file" accept=".pdf" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="certificate-for-equivalence-file" class="form-label">A copy of the
-                                        foreign certificate subject to the equivalence (نسخة عن الشهادة الأجنبية موضوع
-                                        المعادلة)</label>
+                                        foreign certificate subject to the equivalence (نسخة عن الشهادة الأجنبية المراد
+                                        معادلتها)</label>
                                     <input class="form-control" type="file" id="certificate-for-equivalence-file"
                                         name="certificate_for_equivalence_file" accept=".pdf" required>
                                 </div>

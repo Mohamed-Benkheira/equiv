@@ -30,15 +30,18 @@
 
                             @if ($licenseRequest->status === 'accepted')
                                 <div class="alert alert-success mt-4" role="alert">
-                                    Your request has been accepted. Please check your email for further information.
+                                    Your request has been accepted. Please check your email for further information.(تم
+                                    قبول طلبك يرجى تفقد الايميل)
                                 </div>
                             @elseif ($licenseRequest->status === 'declined')
                                 <div class="alert alert-danger mt-4" role="alert">
-                                    Your request has been rejected. Please contact support for more information.
+                                    Your request has been rejected. Please check your email for further information (تم
+                                    رفض
+                                    طلبك يرجى تفقد الايميل)
                                 </div>
                             @else
                                 <div class="alert alert-primary mt-4" role="alert">
-                                    Your request is pending.
+                                    Your request is pending.(تحت المعالجة)
                                 </div>
                             @endif
                         </div>

@@ -33,11 +33,11 @@
                 <div class="d-flex flex-column gap-3">
                     <a href="{{ route('applicant.bac.create') }}" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Request Baccalaureate Certificate Equivalence
+                        Request Baccalaureate Certificate Equivalence (شهادة الباكالوريا)
                     </a>
                     <a href="{{ route('applicant.license.create') }}" class="btn btn-outline-dark btn-lg text-center"
                         style="border-color: #333; color: #333; width: 100%; border-radius: 8px;">
-                        Request License Degree Equivalence
+                        Request License Degree Equivalence (شهادة الليسانس)
                     </a>
 
                     <a href="#" class="btn btn-outline-dark disabled btn-lg text-center"

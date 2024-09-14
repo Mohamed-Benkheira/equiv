@@ -44,31 +44,34 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="school-name" class="form-label">School Name</label>
+                                    <label for="school-name" class="form-label">School Name (اسم المدرسة)</label>
                                     <input type="text" class="form-control" id="school-name" name="school_name"
                                         required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="certificate-date" class="form-label">Date of Certificate</label>
+                                    <label for="certificate-date" class="form-label">Date of Certificate (تاريخ
+                                        الشهادة)</label>
                                     <input type="date" class="form-control" id="certificate-date"
                                         name="certificate_date" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="id-card" class="form-label">ID Card</label>
+                                    <label for="id-card" class="form-label">ID Card ()بطاقة التعريف</label>
                                     <input class="form-control" type="file" id="id-card" name="id_card"
                                         accept=".pdf" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="certificate-file" class="form-label">Your Certificate</label>
+                                    <label for="certificate-file" class="form-label">Your Certificate (شهادتك المراد
+                                        معادلتها)</label>
                                     <input class="form-control" type="file" id="certificate-file"
                                         name="certificate_file" accept=".pdf" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="degrees-paper" class="form-label">Degree Certificate</label>
+                                    <label for="degrees-paper" class="form-label">Degree Certificate (نسخة من كشف
+                                        النقاط)</label>
                                     <input class="form-control" type="file" id="degrees-paper" name="degrees_paper"
                                         accept=".pdf" required>
                                 </div>
@@ -78,7 +81,8 @@
                                     <input type="checkbox" class="form-check-input" id="info-accuracy"
                                         name="info_accuracy" value="1" required>
                                     <label class="form-check-label" for="info-accuracy">
-                                        I confirm that the information provided is valid and original
+                                        I confirm that the information provided is valid and original (اصرح بأن جميع
+                                        المعلومات صحيحة واصلية)
                                     </label>
                                 </div>
 
