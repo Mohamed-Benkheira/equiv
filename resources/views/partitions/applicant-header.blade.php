@@ -6,10 +6,10 @@
         </div>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="#Features">Features</a></li>
-                <li><a class="nav-link scrollto" href="#howItWorks">How to use</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#about">About</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#Features">Features</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#howItWorks">How to use</a></li>
                 <li class="dropdown"><a href="#" class="text-decoration-none"><span>Request</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#faq">Q & A</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('welcome') }}#faq">Q & A</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDrobdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">

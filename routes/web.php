@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\NormalUserRegisterController;
-use App\Http\Controllers\Auth\NormalUserLoginController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +14,26 @@ use App\Http\Controllers\Auth\NormalUserLoginController;
 |
 */
 
+// English version route (/en)
 Route::get('/en', function () {
     if (Auth::guard('applicant')->check()) {
-        return redirect()->route('applicant.index'); // Replace with your applicant's dashboard or desired view route
+        // Redirect to applicant's English dashboard
+        return redirect()->route('applicant.index'); // Applicant's dashboard (English)
     }
+    // Show English version of the homepage
     return view('index');
 })->name('welcome');
 
+// Arabic version route (/)
 Route::get('/', function () {
     if (Auth::guard('applicant')->check()) {
-        return redirect()->route('applicant.index-ar'); // Replace with your applicant's dashboard or desired view route
+        // Redirect to applicant's Arabic dashboard
+        return redirect()->route('applicant.index-ar'); // Applicant's dashboard (Arabic)
     }
+    // Show Arabic version of the homepage
     return view('index-ar');
 })->name('welcome.ar');
 
-
+// Applicant routes
 require __DIR__ . '/applicant.php';
 // require __DIR__ . '/auth.php';
