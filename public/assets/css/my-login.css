@@ -73,7 +73,7 @@ a {
 .redirect .list-group-item.active {
     background-color: #ffffff !important;
     color: #00415a;
-    border: 1px solid #00415a !important.redirect;
+    border: 1px solid #00415a !important;
 }
 
 .redirect .list-group-item {

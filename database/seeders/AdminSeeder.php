@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
     {
         User::create([
             'name' => 'Amine Admin',
-            'email' => 'amine@equivalence.site',
+            'email' => 'amine@equivalence.shop',
             'password' => Hash::make('dashboardpassword'),
             'email_verified_at' => Carbon::now(), // Set email as verified
         ]);
